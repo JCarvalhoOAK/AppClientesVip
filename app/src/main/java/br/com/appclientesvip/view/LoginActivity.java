@@ -63,6 +63,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btnSejaVip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(
+                        LoginActivity.this, ClienteVip.class
+                );
+                startActivity(intent);
+                finish();
+                return;
+
+            }
+        });
+
         txtRecuperarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,7 +145,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validarDadosDoUsuario() {
 
-        return ClienteController.validarDadosDoCliente(clienteFake, editEmail.getText().toString(), editSenha.getText().toString());
+        return ClienteController.validarDadosDoCliente(clienteFake,
+                editEmail.getText().toString(),
+                editSenha.getText().toString());
 
     }
 

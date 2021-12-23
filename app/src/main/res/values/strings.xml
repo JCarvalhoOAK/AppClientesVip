@@ -40,4 +40,27 @@
     <string name="txtHintSenhaB">Confirme a senha digitada...</string>
     <string name="txtTermo">Li e concordo com os termos de uso e política de privacidade.</string>
 
+    <!-- Cadastro CPF    -->
+    <string name="txtCPF">CPF</string>
+    <string name="txtHintCPF">Digite o seu CPF</string>
+    <string name="txtNomeCompleto">Nome Completo</string>
+    <string name="txtHintNomeCompleto">Nome Completo igual está no CPF</string>
+    <string name="btnSalvarConcluir">SALVAR E CONCLUIR</string>
+
+    <!-- Cadastro CNPJ    -->
+    <string name="txtCNPJ">CNPJ</string>
+    <string name="txtHintCNPJ">Digite seu CNPJ</string>
+    <string name="txtRazaoSocial">Razão Social</string>
+    <string name="txtHintRazaoSocial">Razão Social igual ao cartão CNPJ</string>
+    <string name="txtDataAbertura">Data da Abertura da Empresa</string>
+    <string name="txtHintDataAbertura">dd/mm/aaaa</string>
+    <string name="ckSimplesNacional">Simples Nacional</string>
+    <string name="ckMei">MEI</string>
+
+    <!-- Recuperar Senha   -->
+    <string name="txtRecuperarSenha">Recuperar Senha</string>
+    <string name="txtHintRecuperarEmail">Digite o Email cadastrado</string>
+    <string name="btnRecuperar">Recuperar</string>
+
+
 </resources>

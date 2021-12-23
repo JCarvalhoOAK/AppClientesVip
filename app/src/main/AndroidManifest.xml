@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppClientesVip">
         <activity
+            android:name=".view.RecuperarSenha"
+            android:exported="false" />
+        <activity
+            android:name=".view.ClientePessoaJuridica"
+            android:exported="false" />
+        <activity
+            android:name=".view.ClientePessoaFisica"
+            android:exported="false" />
+        <activity
+            android:name=".view.ClienteVip"
+            android:exported="false" />
+        <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
