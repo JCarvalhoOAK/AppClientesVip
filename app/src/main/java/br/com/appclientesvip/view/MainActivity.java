@@ -1,8 +1,10 @@
-package br.com.appclientesvip;
+package br.com.appclientesvip.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.com.appclientesvip.R;
 
 public class MainActivity extends AppCompatActivity {
 

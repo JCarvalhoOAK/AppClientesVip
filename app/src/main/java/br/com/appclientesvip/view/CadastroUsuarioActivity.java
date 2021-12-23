@@ -1,4 +1,4 @@
-package br.com.appclientesvip;
+package br.com.appclientesvip.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import br.com.appclientesvip.R;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
     
@@ -76,7 +78,10 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                         } else {
 
+//                            return isFormularioOK;
+
                         }
+
 
 
                     }
