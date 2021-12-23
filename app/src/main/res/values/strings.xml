@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">AppClientesVip</string>
+    <string name="app_name">Cliente Vip</string>
+    <string name="txt_titulo">Cadastro de Usuários</string>
+    <string name="txtDataAtual">23/12/2021</string>
+    <string name="txtHoraAtual">10:05:00</string>
+    <string name="btnCadastro">CADASTRAR</string>
+    <string name="btnVoltar">Voltar</string>
+
+    <!-- Form User -->
+    <string name="txtCadastro">Cadastro</string>
+    <string name="txtNome">nome</string>
+    <string name="txtHintNome">Digite seu primeiro nome...</string>
+    <string name="txtEmail">E-mail</string>
+    <string name="txtHintEmail">Digite seu melhor e-mail...</string>
+    <string name="txtSenhaA">Senha</string>
+    <string name="txtHintSenhaA">Informe uma senha...</string>
+    <string name="txtSenhaB">Repita a senha</string>
+    <string name="txtHintSenhaB">Confirme a senha digitada...</string>
+    <string name="txtTermo">Li e concordo com os termos de uso e política de privacidade</string>
+
 </resources>
