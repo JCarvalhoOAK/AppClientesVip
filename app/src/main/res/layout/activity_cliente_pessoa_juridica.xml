@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.ClientePessoaJuridica">
+    tools:context=".view.ClientePessoaJuridicaActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="8dp"
-                android:text="@string/txtCNPJ"
+                android:text="@string/txtClientePessoaJuridica"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -88,13 +88,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="16dp"
                 android:ems="10"
+                android:gravity="left"
                 android:hint="@string/txtHintDataAbertura"
-                android:inputType="textPersonName" />
+                android:inputType="date" />
 
             <CheckBox
                 android:id="@+id/chSimplesNacional"
@@ -145,7 +145,7 @@
                     android:layout_marginRight="16dp"
                     android:text="@string/btnVoltar" />
                 <Button
-                    android:id="@+id/btnCancela"
+                    android:id="@+id/btnCancelar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

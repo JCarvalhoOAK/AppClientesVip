@@ -18,14 +18,14 @@ import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
 
-public class ClienteVip extends AppCompatActivity {
+public class ClienteVipActivity extends AppCompatActivity {
 
     Cliente novoVip;
     private SharedPreferences preferences;
 
     EditText editPrimeiroNome, editSobreNome;
     CheckBox chPessoaFisica;
-    Button btnSalvarContinuar, btnCancelar;
+    Button btnSalvarContinuar, btnVoltar, btnCancelar;
 
     boolean isFormularioOK, isPessoaFisica;
 
@@ -49,15 +49,31 @@ public class ClienteVip extends AppCompatActivity {
 
                     if(isPessoaFisica){
 //                        Tela pessoa Fisica
+                        Intent intent = new Intent( ClienteVipActivity.this, ClientePessoaFisicaActivity.class );
+                        startActivity(intent);
+
+                    } else{
+//                        Tela CNPJ
+                        Intent intent = new Intent( ClienteVipActivity.this, ClientePessoaJuridicaActivity.class );
+                        startActivity(intent);
 
                     }
-//                        Tela CNPJ
                 }
-
             }
         });
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClienteVipActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         
     }
+
 
     private void initFormulario() {
 
@@ -66,6 +82,7 @@ public class ClienteVip extends AppCompatActivity {
         chPessoaFisica   = findViewById(R.id.chPessoaFisica);
 
         btnSalvarContinuar  = findViewById(R.id.btnSalvarContinuar);
+        btnVoltar  = findViewById(R.id.btnVoltar);
         btnCancelar = findViewById(R.id.btnCancelar);
 
 

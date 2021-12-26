@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.ClientePessoaFisica">
+    tools:context=".view.ClientePessoaFisicaActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="8dp"
-                android:text="@string/txtCPF"
+                android:text="@string/txtClientePessoaFisica"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -102,7 +102,7 @@
                     android:layout_marginRight="16dp"
                     android:text="@string/btnVoltar" />
                 <Button
-                    android:id="@+id/btnCancela"
+                    android:id="@+id/btnCancelar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

@@ -20,7 +20,7 @@
 
     <string name="txtNovoVip">Novo Vip</string>
     <string name="txtPrimeiroNome">Primeiro Nome</string>
-    <string name="txtSobreNome">Sobre Nome</string>
+    <string name="txtSobreNome">Sobrenome</string>
     <string name="txtHintSobreNome">Digite seu sobre nome...</string>
     <string name="txtPessoaFisica">Pessoa Fisica</string>
     <string name="btnSalvarContinuar">SALVAR E CONTINUAR</string>
@@ -42,6 +42,7 @@
 
     <!-- Cadastro CPF    -->
     <string name="txtCPF">CPF</string>
+    <string name="txtClientePessoaFisica">Pessoa Física</string>
     <string name="txtHintCPF">Digite o seu CPF</string>
     <string name="txtNomeCompleto">Nome Completo</string>
     <string name="txtHintNomeCompleto">Nome Completo igual está no CPF</string>
@@ -49,6 +50,7 @@
 
     <!-- Cadastro CNPJ    -->
     <string name="txtCNPJ">CNPJ</string>
+    <string name="txtClientePessoaJuridica">Pessoa Jurídica</string>
     <string name="txtHintCNPJ">Digite seu CNPJ</string>
     <string name="txtRazaoSocial">Razão Social</string>
     <string name="txtHintRazaoSocial">Razão Social igual ao cartão CNPJ</string>
