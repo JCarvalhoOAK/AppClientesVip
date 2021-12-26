@@ -113,17 +113,17 @@ public class LoginActivity extends AppCompatActivity {
                       @Override
                       public void onClick(DialogInterface dialog, int which) {
                                           Toast.makeText(getApplicationContext(),
-                        "Obrigado por aceitar, continue com seu cadastro!",
+                        R.string.chamadaAceitar,
                         Toast.LENGTH_LONG).show();
 
                       }
                   });
 //                  lerPoliticaDeUso.setNegativeButton("Recusar", null);
-                  lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
+                  lerPoliticaDeUso.setNegativeButton(R.string.recusar, new DialogInterface.OnClickListener() {
                       @Override
                       public void onClick(DialogInterface dialog, int which) {
                           Toast.makeText(getApplicationContext(),
-                                  "Lamentamos, mas é necessario aceitar para prosseguir!",
+                                  R.string.chamadaLamentamos,
                                   Toast.LENGTH_LONG).show();
                           finish();
                           return;

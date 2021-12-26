@@ -65,7 +65,19 @@
     <string name="btnRecuperar">Recuperar</string>
 
     <!--  AVISOS GERAIS  -->
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="chamadaLamentamos">Lamentamos, mas é necessario aceitar para prosseguir!</string>
+    <string name="chamadaCancelar">Limpar e Cancelar</string>
     <string name="cancelar">Deseja realmente cancelar?</string>
+    <string name="cancelado">Cancelado com sucesso!</string>
+    <string name="recusar">Recusar</string>
+    <string name="aceitar">Aceitar</string>
+    <string name="chamadaAceitar">Obrigado por aceitar, continue com seu cadastro!</string>
+    <string name="cancelado1">Cancelado com sucesso!</string>
+    <string name="cancelado2">Cancelado com sucesso!</string>
+    <string name="cancelado3">Cancelado com sucesso!</string>
+    <string name="cancelado4">Cancelado com sucesso!</string>
 
 
 </resources>

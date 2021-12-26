@@ -71,20 +71,20 @@ public class ClienteVipActivity extends AppCompatActivity {
                 AlertDialog.Builder lerPoliticaDeUso = new AlertDialog.Builder(
                         ClienteVipActivity.this);
                 lerPoliticaDeUso.setIcon(R.drawable.especializada);
-                lerPoliticaDeUso.setTitle("Limpar e Cancelar");
+                lerPoliticaDeUso.setTitle(R.string.chamadaCancelar);
 //                  lerPoliticaDeUso.setPositiveButtonIcon(R.drawable.)
-                lerPoliticaDeUso.setMessage("Deseja realmente LIMPAR e CANCELAR?");
+                lerPoliticaDeUso.setMessage(R.string.cancelar);
                 lerPoliticaDeUso.setCancelable(false);
-                lerPoliticaDeUso.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                lerPoliticaDeUso.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(getApplicationContext(),
-                                R.string.cancelar,
+                                R.string.cancelado,
                                 Toast.LENGTH_LONG).show();
 
                     }
                 });
-                  lerPoliticaDeUso.setNegativeButton("NÃO", null);
+                  lerPoliticaDeUso.setNegativeButton(R.string.nao, null);
 //                lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialog, int which) {
