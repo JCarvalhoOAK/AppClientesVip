@@ -64,5 +64,8 @@
     <string name="txtHintRecuperarEmail">Digite o Email cadastrado</string>
     <string name="btnRecuperar">Recuperar</string>
 
+    <!--  AVISOS GERAIS  -->
+    <string name="cancelar">Deseja realmente cancelar?</string>
+
 
 </resources>

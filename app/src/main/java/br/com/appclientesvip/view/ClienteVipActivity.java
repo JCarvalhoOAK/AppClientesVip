@@ -1,7 +1,9 @@
 package br.com.appclientesvip.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -65,8 +67,37 @@ public class ClienteVipActivity extends AppCompatActivity {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClienteVipActivity.this, LoginActivity.class);
-                startActivity(intent);
+
+                AlertDialog.Builder lerPoliticaDeUso = new AlertDialog.Builder(
+                        ClienteVipActivity.this);
+                lerPoliticaDeUso.setIcon(R.drawable.especializada);
+                lerPoliticaDeUso.setTitle("Limpar e Cancelar");
+//                  lerPoliticaDeUso.setPositiveButtonIcon(R.drawable.)
+                lerPoliticaDeUso.setMessage("Deseja realmente LIMPAR e CANCELAR?");
+                lerPoliticaDeUso.setCancelable(false);
+                lerPoliticaDeUso.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(),
+                                R.string.cancelar,
+                                Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                  lerPoliticaDeUso.setNegativeButton("NÃO", null);
+//                lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(getApplicationContext(),
+//                                "Lamentamos, mas é necessario aceitar para prosseguir!",
+//                                Toast.LENGTH_LONG).show();
+//                        finish();
+//                        return;
+//                    }
+//                });
+
+                lerPoliticaDeUso.create().show();
+
             }
         });
 

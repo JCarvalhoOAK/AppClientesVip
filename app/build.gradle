@@ -29,6 +29,14 @@ android {
 
 dependencies {
 
+    //ADD FOR ME:
+//    implementation 'com.github.Shashank02051997:FancyAlertDialog-Android:0.1'
+//    implementation "com.github.muigukenneth:ElegantDialog:${LATEST_VERSION}"
+//    implementation "com.github.muigukenneth:ElegantDialog:1.1.5"
+    //Dependência dialog de progresso
+//    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+//    implementation 'com.github.Shashank02051997:FancyAlertDialog-Android:0.2'
+
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'

@@ -1,7 +1,10 @@
 package br.com.appclientesvip.view;
 
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,7 +21,10 @@ import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
 
+
 public class LoginActivity extends AppCompatActivity {
+
+    private android.app.AlertDialog dialog;
 
     Cliente clienteFake;
 
@@ -85,17 +91,51 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         });
+
+
+
         txtLerPolitica.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),
-                        "Carregando tela com a Política de Privacidade ...",
+                                              @Override
+                                              public void onClick(View v) {
+
+                  AlertDialog.Builder lerPoliticaDeUso = new AlertDialog.Builder(
+                          LoginActivity.this);
+                  lerPoliticaDeUso.setIcon(R.drawable.especializada);
+                  lerPoliticaDeUso.setTitle("TERMO DE USO");
+//                  lerPoliticaDeUso.setPositiveButtonIcon(R.drawable.)
+                  lerPoliticaDeUso.setMessage("Termos e condições de uso é o documento pelo qual um site ou um aplicativo define as regras da utilização de seu serviço pelos usuários. Ou seja, o dono da aplicação determina as condições de uso do site, seja ele gratuito ou pago. Os usuários são informados sobre regras como idade mínima, cadastro, pagamento, direitos autorais e responsabilidades.\n" +
+                          "\n" +
+                          "Nesse sentido, esse instrumento estabelece a relação contratual entre o dono da aplicação (ex. você, sua empresa) e o usuário final. Assim, define-se exatamente qual serviço está sendo oferecido. Os termos de uso para aplicativo de entrega de comida, por exemplo, devem deixar bem claro que a empresa apenas presta serviços de tecnologia e entrega, enquanto que os restaurantes são responsáveis pela comida. Assim, o instrumento serve para delimitar as responsabilidades do seu site ou aplicativo. Ainda, limita-se a responsabilidade da plataforma em relação a serviços ou bens fornecidos por terceiros.\n" +
+                          "\n" +
+                          "Por fim, os termos devem sempre transmitir com clareza o que está sendo aceito pelo usuário. Inclusive dando aceite à política de uso de dados pessoais na plataforma, representada por outro documento, a Política de Privacidade. Os Termos de uso e a Política de privacidade são, em conjunto, documentos importantes para um site ou aplicativo definir bem as regras de uso de seu serviço e assim evitar problemas futuros.");
+                  lerPoliticaDeUso.setCancelable(false);
+                  lerPoliticaDeUso.setPositiveButton("Aceitar", new DialogInterface.OnClickListener() {
+                      @Override
+                      public void onClick(DialogInterface dialog, int which) {
+                                          Toast.makeText(getApplicationContext(),
+                        "Obrigado por aceitar, continue com seu cadastro!",
                         Toast.LENGTH_LONG).show();
+
+                      }
+                  });
+//                  lerPoliticaDeUso.setNegativeButton("Recusar", null);
+                  lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
+                      @Override
+                      public void onClick(DialogInterface dialog, int which) {
+                          Toast.makeText(getApplicationContext(),
+                                  "Lamentamos, mas é necessario aceitar para prosseguir!",
+                                  Toast.LENGTH_LONG).show();
+                          finish();
+                          return;
+                      }
+                  });
+
+                  lerPoliticaDeUso.create().show();
             }
         });
 
-    }
 
+    }
 
 
     private boolean validarFormulario() {

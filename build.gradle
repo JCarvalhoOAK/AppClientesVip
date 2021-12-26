@@ -2,10 +2,13 @@
 buildscript {
     repositories {
         google()
+        maven {url 'https://jitpack.io'}
         mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
+//        implementation 'com.github.Shashank02051997:FancyAlertDialog-Android:0.2'
+//        implementation "com.github.muigukenneth:ElegantDialog:1.1.5"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
