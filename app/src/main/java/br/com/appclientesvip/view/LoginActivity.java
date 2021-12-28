@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private android.app.AlertDialog dialog;
 
-    Cliente clienteFake;
+    Cliente cliente;
 
     private SharedPreferences preferences;
 
@@ -170,7 +170,8 @@ public class LoginActivity extends AppCompatActivity {
 
         isFormularioOK = false;
 
-        clienteFake = ClienteController.getClienteFake();
+//        clienteFake = ClienteController.getClienteFake();
+        cliente= new Cliente();
 
         restaurarSharedPreferences();
 
@@ -185,7 +186,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validarDadosDoUsuario() {
 
-        return ClienteController.validarDadosDoCliente(clienteFake,
+        return ClienteController.validarDadosDoCliente(cliente,
                 editEmail.getText().toString(),
                 editSenha.getText().toString());
 
@@ -204,6 +205,13 @@ public class LoginActivity extends AppCompatActivity {
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
+
+        cliente.setEmail(preferences.getString("email", "teste@teste.com"));
+        cliente.setSenha(preferences.getString("senha", "12345"));
+        cliente.setPrimeiroNome(preferences.getString("primeiroNome", "User"));
+        cliente.setSobreNome(preferences.getString("sobreNome", "One"));
+        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
+
         isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
 
     }

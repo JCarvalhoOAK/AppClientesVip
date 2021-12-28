@@ -53,7 +53,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    Intent intent = new Intent( ClientePessoaJuridicaActivity.this, LoginActivity.class );
+                    Intent intent = new Intent( ClientePessoaJuridicaActivity.this, CredencialDeAcessoActivity.class );
                     startActivity(intent);
                 }
 
@@ -170,16 +170,20 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-//        dados.putString("primeiroNome", novoVip.getPrimeiroNome());
-//        dados.putString("sobrenome", novoVip.getSobreNome());
-//        dados.putBoolean("chPessoaFisica", novoVip.isPessoaFisica());
-//        dados.apply();
+        dados.putString("razaoSocial", editRazaoSocial.getText().toString());
+        dados.putString("cnpj", editCNPJ.getText().toString());
+        dados.putString("dataAberturaPJ", editDataAberturaPJ.getText().toString());
+
+        dados.putBoolean("simplesNacional", isSimplesNacional);
+        dados.putBoolean("mei", isMEI);
+
+        dados.apply();
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
-//        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+
 
     }
 }

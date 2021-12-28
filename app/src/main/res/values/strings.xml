@@ -29,9 +29,10 @@
 
     <!-- formulário de cadastro de usuários -->
 
+    <string name="txtFinalizacaoCadastro">Credenciais de Acesso</string>
     <string name="txtCadastro">Cadastro</string>
     <string name="txtNome">Nome</string>
-    <string name="txtHintNome">Digite seu primeiro nome...</string>
+    <string name="txtHintNome">Digite seu nome...</string>
     <string name="txtEmail">E-mail</string>
     <string name="txtHintEmail">Digite o seu melhor e-mail...</string>
     <string name="txtSenhaA">Senha</string>
@@ -65,6 +66,7 @@
     <string name="btnRecuperar">Recuperar</string>
 
     <!--  AVISOS GERAIS  -->
+    <string name="atencao">ATENÇÃO!</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="chamadaLamentamos">Lamentamos, mas é necessario aceitar para prosseguir!</string>
@@ -74,10 +76,10 @@
     <string name="recusar">Recusar</string>
     <string name="aceitar">Aceitar</string>
     <string name="chamadaAceitar">Obrigado por aceitar, continue com seu cadastro!</string>
-    <string name="cancelado1">Cancelado com sucesso!</string>
-    <string name="cancelado2">Cancelado com sucesso!</string>
-    <string name="cancelado3">Cancelado com sucesso!</string>
-    <string name="cancelado4">Cancelado com sucesso!</string>
+    <string name="acordoUsolido">Li e concordo com os termos de uso e política de privacidade</string>
+    <string name="senhasDiferentes">As senhas digitadas não são iguais, por favor tente novamente</string>
+    <string name="termoNecessario">É necessário aceitar os termos de uso para continuar</string>
+    <string name="continuar">Continuar</string>
 
 
 </resources>

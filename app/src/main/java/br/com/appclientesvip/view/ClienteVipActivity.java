@@ -27,7 +27,7 @@ public class ClienteVipActivity extends AppCompatActivity {
 
     EditText editPrimeiroNome, editSobreNome;
     CheckBox chPessoaFisica;
-    Button btnSalvarContinuar, btnVoltar, btnCancelar;
+    Button btnSalvarContinuar, btnCancelar;
 
     boolean isFormularioOK, isPessoaFisica;
 
@@ -35,7 +35,7 @@ public class ClienteVipActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente_vip);
-        
+
         initFormulario();
 
         btnSalvarContinuar.setOnClickListener(new View.OnClickListener() {
@@ -49,17 +49,10 @@ public class ClienteVipActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    if(isPessoaFisica){
-//                        Tela pessoa Fisica
-                        Intent intent = new Intent( ClienteVipActivity.this, ClientePessoaFisicaActivity.class );
-                        startActivity(intent);
+                    Intent intent = new Intent(ClienteVipActivity.this,
+                            ClientePessoaFisicaActivity.class);
+                    startActivity(intent);
 
-                    } else{
-//                        Tela CNPJ
-                        Intent intent = new Intent( ClienteVipActivity.this, ClientePessoaJuridicaActivity.class );
-                        startActivity(intent);
-
-                    }
                 }
             }
         });
@@ -72,7 +65,6 @@ public class ClienteVipActivity extends AppCompatActivity {
                         ClienteVipActivity.this);
                 lerPoliticaDeUso.setIcon(R.drawable.especializada);
                 lerPoliticaDeUso.setTitle(R.string.chamadaCancelar);
-//                  lerPoliticaDeUso.setPositiveButtonIcon(R.drawable.)
                 lerPoliticaDeUso.setMessage(R.string.cancelar);
                 lerPoliticaDeUso.setCancelable(false);
                 lerPoliticaDeUso.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
@@ -84,25 +76,13 @@ public class ClienteVipActivity extends AppCompatActivity {
 
                     }
                 });
-                  lerPoliticaDeUso.setNegativeButton(R.string.nao, null);
-//                lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        Toast.makeText(getApplicationContext(),
-//                                "Lamentamos, mas é necessario aceitar para prosseguir!",
-//                                Toast.LENGTH_LONG).show();
-//                        finish();
-//                        return;
-//                    }
-//                });
-
+                lerPoliticaDeUso.setNegativeButton(R.string.nao, null);
                 lerPoliticaDeUso.create().show();
 
             }
         });
 
 
-        
     }
 
 
@@ -110,10 +90,9 @@ public class ClienteVipActivity extends AppCompatActivity {
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobreNome = findViewById(R.id.editSobreNome);
-        chPessoaFisica   = findViewById(R.id.chPessoaFisica);
+        chPessoaFisica = findViewById(R.id.chPessoaFisica);
 
-        btnSalvarContinuar  = findViewById(R.id.btnSalvarContinuar);
-        btnVoltar  = findViewById(R.id.btnVoltar);
+        btnSalvarContinuar = findViewById(R.id.btnSalvarContinuar);
         btnCancelar = findViewById(R.id.btnCancelar);
 
 
@@ -129,12 +108,12 @@ public class ClienteVipActivity extends AppCompatActivity {
 
         boolean retorno = true;
 
-        if (TextUtils.isEmpty(editPrimeiroNome.getText().toString())){
+        if (TextUtils.isEmpty(editPrimeiroNome.getText().toString())) {
             editPrimeiroNome.setError("*");
             editPrimeiroNome.requestFocus();
             retorno = false;
         }
-        if (TextUtils.isEmpty(editSobreNome.getText().toString())){
+        if (TextUtils.isEmpty(editSobreNome.getText().toString())) {
             editSobreNome.setError("*");
             editSobreNome.requestFocus();
             retorno = false;
@@ -144,7 +123,7 @@ public class ClienteVipActivity extends AppCompatActivity {
 
     }
 
-    public void pessoaFisica(View view){
+    public void pessoaFisica(View view) {
 
         isPessoaFisica = chPessoaFisica.isChecked();
 
@@ -156,15 +135,15 @@ public class ClienteVipActivity extends AppCompatActivity {
         SharedPreferences.Editor dados = preferences.edit();
 
         dados.putString("primeiroNome", novoVip.getPrimeiroNome());
-        dados.putString("sobrenome", novoVip.getSobreNome());
-        dados.putBoolean("chPessoaFisica", novoVip.isPessoaFisica());
+        dados.putString("sobreNome", novoVip.getSobreNome());
+        dados.putBoolean("pessoaFisica", novoVip.isPessoaFisica());
         dados.apply();
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
-//        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+//        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
 
     }
 }

@@ -28,7 +28,7 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
     EditText editCPF, editNomeCompleto;
     Button btnSalvarContinuar, btnVoltar, btnCancelar;
 
-    boolean isFormularioOK;
+    boolean isFormularioOK, isPessoaFisica;
 
 
     @Override
@@ -48,7 +48,14 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    Intent intent = new Intent( ClientePessoaFisicaActivity.this, LoginActivity.class );
+                    Intent intent;
+
+                    if (isPessoaFisica)
+                        intent = new Intent(ClientePessoaFisicaActivity.this,
+                                CredencialDeAcessoActivity.class);
+                    else
+                        intent = new Intent(ClientePessoaFisicaActivity.this,
+                                ClientePessoaJuridicaActivity.class);
                     startActivity(intent);
                 }
 
@@ -71,7 +78,6 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
                         ClientePessoaFisicaActivity.this);
                 lerPoliticaDeUso.setIcon(R.drawable.especializada);
                 lerPoliticaDeUso.setTitle(R.string.chamadaCancelar);
-//                  lerPoliticaDeUso.setPositiveButtonIcon(R.drawable.)
                 lerPoliticaDeUso.setMessage(R.string.cancelar);
                 lerPoliticaDeUso.setCancelable(false);
                 lerPoliticaDeUso.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
@@ -84,22 +90,10 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
                     }
                 });
                 lerPoliticaDeUso.setNegativeButton(R.string.nao, null);
-//                lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        Toast.makeText(getApplicationContext(),
-//                                "Lamentamos, mas é necessario aceitar para prosseguir!",
-//                                Toast.LENGTH_LONG).show();
-//                        finish();
-//                        return;
-//                    }
-//                });
-
                 lerPoliticaDeUso.create().show();
 
             }
         });
-
 
 
     }
@@ -150,15 +144,15 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-//        dados.putString("primeiroNome", novoVip.getPrimeiroNome());
-//        dados.putString("sobrenome", novoVip.getSobreNome());
-//        dados.putBoolean("chPessoaFisica", novoVip.isPessoaFisica());
-//        dados.apply();
+        dados.putString("cpf", editCPF.getText().toString());
+        dados.putString("nomeCompleto", editNomeCompleto.getText().toString());
+        dados.apply();
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
+        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
 
     }
 }

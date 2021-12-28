@@ -10,7 +10,7 @@ public class AppUtil {
     public static final int TIME_SPLASH = 5*1000;
     public static final String PREF_APP = "app_cliente_vip_pref";
 
-
+    //REMOVER O VOID APOS CONCLUSAO DO SCRITP
     public static void getDataAtual(){
 
         String dia, mes, ano;
@@ -23,6 +23,17 @@ public class AppUtil {
 //
 //        }
 
+    }
+
+    //REMOVER O VOID APOS CONCLUSAO DO SCRITP
+    public static void getHoraAtual(){
+
+        String horaAtual = "00:00:00";
+        String hora, minuto, segundo;
+
+//        try{
+//            Calendar calendar = Calendar.getInstance();
+//        }
 
     }
 
