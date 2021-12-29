@@ -7,11 +7,14 @@
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_cliente_pessoa_fisica.xml" value="0.25" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_cliente_pessoa_juridica.xml" value="0.27291666666666664" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_cliente_vip.xml" value="0.25" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_consultar_clientes.xml" value="0.22962962962962963" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_credencial_de_acesso.xml" value="0.225" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_main.xml" value="0.2235897435897436" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_recuperar_senha.xml" value="0.25885416666666666" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_splash.xml" value="0.25885416666666666" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/alerta.xml" value="0.12864583333333332" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/linha_detalhe_cliente.xml" value="0.25" />
       </map>
     </option>
   </component>

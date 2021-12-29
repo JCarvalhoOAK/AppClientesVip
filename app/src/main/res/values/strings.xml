@@ -3,16 +3,34 @@
     <string name="txt_titulo">Cadastro de Usuários</string>
     <string name="txtDataAtual">23/12/2021</string>
     <string name="txtHoraAtual">10:05:00</string>
+
+
+    <!--  Buttons  -->
     <string name="btnCadastro">CADASTRAR</string>
+    <string name="btnAcessar">ACESSAR</string>
+    <string name="btnSejaVip">SEJA VIP</string>
     <string name="btnVoltar">Voltar</string>
+    <string name="btnCancelar">CANCELAR</string>
+    <string name="btnSalvarContinuar">SALVAR E CONTINUAR</string>
+    <string name="btnSalvarConcluir">SALVAR E CONCLUIR</string>
+    <string name="btnRecuperar">Recuperar</string>
+    <string name="btnMeusDados">Meus Dados</string>
+    <string name="btnAtualizar">Atualizar</string>
+    <string name="btnExcluir">Excluir</string>
+    <string name="btnConsultar">Consultar</string>
+    <string name="btnSair">Sair</string>
+    <string name="btnSairApp">Sair do Aplicativo</string>
+
+    <!-- Chamada Geral  -->
+    <string name="txtCliente">Cliente</string>
+
+
 
     <!-- tela de login -->
 
     <string name="txtLogin">Login</string>
     <string name="txtLembrar">Lembrar</string>
     <string name="txtRecurarSenha">Recuperar Senha</string>
-    <string name="btnAcessar">ACESSAR</string>
-    <string name="btnSejaVip">SEJA VIP</string>
     <string name="txtVersapApp">Versão V1.0</string>
     <string name="txtLerPolitica">Ler Política de Privacidade - Termos de Uso.</string>
 
@@ -23,8 +41,12 @@
     <string name="txtSobreNome">Sobrenome</string>
     <string name="txtHintSobreNome">Digite seu sobre nome...</string>
     <string name="txtPessoaFisica">Pessoa Fisica</string>
-    <string name="btnSalvarContinuar">SALVAR E CONTINUAR</string>
-    <string name="btnCancelar">CANCELAR</string>
+
+    <!--  Meus Dados  -->
+    <string name="txtMeusDados">Meus Dados</string>
+    <string name="txtAtualizarDados">Atualizar meus Dados</string>
+    <string name="txtExcluirConta">Excluir Conta</string>
+    <string name="txtConsultarCliente">Consultar Clientes Vip</string>
 
 
     <!-- formulário de cadastro de usuários -->
@@ -47,7 +69,6 @@
     <string name="txtHintCPF">Digite o seu CPF</string>
     <string name="txtNomeCompleto">Nome Completo</string>
     <string name="txtHintNomeCompleto">Nome Completo igual está no CPF</string>
-    <string name="btnSalvarConcluir">SALVAR E CONCLUIR</string>
 
     <!-- Cadastro CNPJ    -->
     <string name="txtCNPJ">CNPJ</string>
@@ -63,12 +84,14 @@
     <!-- Recuperar Senha   -->
     <string name="txtRecuperarSenha">Recuperar Senha</string>
     <string name="txtHintRecuperarEmail">Digite o Email cadastrado</string>
-    <string name="btnRecuperar">Recuperar</string>
 
     <!--  AVISOS GERAIS  -->
+    <string name="welcomeFulano">Seja Bem Vindo!</string>
+    <string name="volteSempre">Volte sempre e obrigado!</string>
     <string name="atencao">ATENÇÃO!</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+    <string name="concordo">Concordo</string>
     <string name="chamadaLamentamos">Lamentamos, mas é necessario aceitar para prosseguir!</string>
     <string name="chamadaCancelar">Limpar e Cancelar</string>
     <string name="cancelar">Deseja realmente cancelar?</string>
@@ -80,6 +103,28 @@
     <string name="senhasDiferentes">As senhas digitadas não são iguais, por favor tente novamente</string>
     <string name="termoNecessario">É necessário aceitar os termos de uso para continuar</string>
     <string name="continuar">Continuar</string>
+    <string name="sairCertesa">Confirma sua saida do aplicativo?</string>
+    <string name="excluirCertesa">Confirma a exclusão definitiva da conta?</string>
+    <string name="excluirGenericoCertesa">Confirma a exclusão do item?</string>
+    <string name="excluidoConta">Sua conta foi excluída, esperamos que retorne em breve!</string>
+    <string name="txtTermoUso">TERMO DE USO</string>
+    <string name="politicaPrivacidadeUso">Termos e condições de uso é o documento pelo qual um site ou um aplicativo define as regras da utilização de seu serviço pelos usuários. Ou seja, o dono da aplicação determina as condições de uso do site
+        , seja ele gratuito ou pago. Os usuários são informados sobre regras como idade mínima,
+        cadastro, pagamento, direitos autorais e responsabilidades.
+        Nesse sentido, esse instrumento estabelece a relação contratual
+        entre o dono da aplicação (ex. você, sua empresa) e o usuário final.
+        Assim, define-se exatamente qual serviço está sendo oferecido.
+        Os termos de uso para aplicativo de entrega de comida, por exemplo,
+        devem deixar bem claro que a empresa apenas presta serviços de tecnologia e entrega,
+        enquanto que os restaurantes são responsáveis pela comida.
+        Assim, o instrumento serve para delimitar as responsabilidades do seu site ou aplicativo.
+        Ainda, limita-se a responsabilidade da plataforma em relação a serviços ou bens fornecidos por terceiros.
+        Por fim, os termos devem sempre transmitir com clareza o que está sendo aceito pelo usuário.
+        Inclusive dando aceite à política de uso de dados pessoais na plataforma, representada por outro documento,
+        a Política de Privacidade.
+        Os Termos de uso e a Política de privacidade são, em conjunto,
+        documentos importantes para um site ou aplicativo definir bem as regras de uso de seu serviço e
+        assim evitar problemas futuros.</string>
 
 
 </resources>

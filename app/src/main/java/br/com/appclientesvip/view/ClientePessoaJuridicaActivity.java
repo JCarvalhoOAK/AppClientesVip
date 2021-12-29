@@ -172,7 +172,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
         dados.putString("razaoSocial", editRazaoSocial.getText().toString());
         dados.putString("cnpj", editCNPJ.getText().toString());
-        dados.putString("dataAberturaPJ", editDataAberturaPJ.getText().toString());
+        dados.putString("dataAbertura", editDataAberturaPJ.getText().toString());
 
         dados.putBoolean("simplesNacional", isSimplesNacional);
         dados.putBoolean("mei", isMEI);
