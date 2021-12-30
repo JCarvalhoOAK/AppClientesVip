@@ -1,6 +1,6 @@
 package br.com.appclientesvip.model;
 
-public class ClientePJ extends Cliente{
+public class ClientePJ extends ClientePF{
 
         private String cnpj;
         private String razaoSocial;
