@@ -1,5 +1,6 @@
 package br.com.appclientesvip.api;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -161,6 +162,8 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Consultar/ Listar dados no Banco de Dados
      * @return
      */
+    //ANOTATION COLOCADA POR MIM, VERIFICAR NECESSIDADE:
+    @SuppressLint("Range")
     public List<Cliente> list(String tabela){
 
         List<Cliente> list = new ArrayList<>();

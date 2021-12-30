@@ -175,11 +175,54 @@ public class LoginActivity extends AppCompatActivity {
 //        clienteFake = ClienteController.getClienteFake();
         cliente= new Cliente();
 
-        controller.incluir(cliente);
-        controller.alterar(cliente);
-        controller.deletar(cliente);
-        List<Cliente> clientes =controller.listar();
+//---------------------------------------------
+//       for(int i =0; i< 30; i++) {
+//           cliente.setPrimeiroNome("Novo " + i);
+//           cliente.setSobreNome("Sobrenome" + i);
+//           cliente.setEmail(i + "@teste.com");
+//           cliente.setSenha(i + "_12345");
+//           cliente.setPessoaFisica(false);
+//
+//           controller.incluir(cliente);
+//       }
 
+//---------------------------------------------
+//        cliente.setPrimeiroNome("Novo "+i);
+//        cliente.setSobreNome("Sobrenome"+i);
+//        cliente.setEmail(i+"@teste.com");
+//        cliente.setSenha(i+"_12345");
+//        cliente.setPessoaFisica(false);
+//        controller.incluir(cliente);
+
+//---------------------------------------------
+//        cliente.setId(1);
+//        cliente.setPrimeiroNome("Alterado");
+//        cliente.setSobreNome("DINUovo");
+//        cliente.setEmail("teste@teste.com");
+//        cliente.setSenha("12345");
+//        cliente.setPessoaFisica(false);
+//        controller.alterar(cliente);
+
+//---------------------------------------------
+//        cliente.setId(20);
+//        controller.deletar(cliente);
+
+//---------------------------------------------
+//        cliente.setId(1);
+//        cliente.setPrimeiroNome("Alterado");
+//        cliente.setSobreNome("DINUovo");
+//        cliente.setEmail("teste@teste.com");
+//        cliente.setSenha("12345");
+//        cliente.setPessoaFisica(false);
+//        List<Cliente> clientes =controller.listar();
+
+//---------------------------------------------
+//        controller.incluir(cliente);
+//        controller.alterar(cliente);
+//        controller.deletar(cliente);
+//        List<Cliente> clientes =controller.listar();
+
+//---------------------------------------------
         restaurarSharedPreferences();
 
 

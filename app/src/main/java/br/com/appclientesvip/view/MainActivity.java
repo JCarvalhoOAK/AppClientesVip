@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -258,6 +259,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void consultarClientesVip(View view) {
+        Intent intent = new Intent(MainActivity.this,
+                ConsultarClientesActivity.class);
+        startActivity(intent);
 
     }
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.appclientesvip.Controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.ClienteAdapter;
 import br.com.appclientesvip.model.Cliente;
@@ -19,6 +20,7 @@ public class ConsultarClientesActivity extends AppCompatActivity {
     ClienteAdapter clienteAdapter;
 
     Cliente obj;
+    ClienteController controller;
 
     RecyclerView rvClientesVip;
 
@@ -29,17 +31,20 @@ public class ConsultarClientesActivity extends AppCompatActivity {
 
         rvClientesVip = findViewById(R.id.rvClientesVip);
 
-        clientes = new ArrayList<>();
+        controller = new ClienteController(getApplicationContext());
 
-        for (int i = 0; i < 50; i++) {
+        clientes = controller.listar();
+//        clientes = new ArrayList<>();
 
-            obj = new Cliente();
-            obj.setPrimeiroNome("Cliente "+i);
-            obj.setPessoaFisica(i % 2==0);
-
-            clientes.add(obj);
-            
-        }
+//        for (int i = 0; i < 50; i++) {
+//
+//            obj = new Cliente();
+//            obj.setPrimeiroNome("Cliente "+i);
+//            obj.setPessoaFisica(i % 2==0);
+//
+//            clientes.add(obj);
+//
+//        }
 
         clienteAdapter = new ClienteAdapter(clientes, getApplicationContext());
 
