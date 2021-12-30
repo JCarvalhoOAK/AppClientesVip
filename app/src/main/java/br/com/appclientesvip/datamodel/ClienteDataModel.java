@@ -13,13 +13,14 @@ public class ClienteDataModel {
      *     private boolean pessoaFisica;
      */
 
-    private static final String TABELA = "cliente";
-    private static final String ID = "id";
-    private static final String PRIMEIRO_NOME = "primeiroNome";
-    private static final String SOBRE_NOME = "sobreNome";
-    private static final String EMAIL = "email";
-    private static final String SENHA = "senha";
-    private static final String PESSOA_FISICA = "pessoaFisica";
+    public static final String TABELA = "cliente";
+
+    public static final String ID = "id";
+    public static final String PRIMEIRO_NOME = "primeiroNome";
+    public static final String SOBRE_NOME = "sobreNome";
+    public static final String EMAIL = "email";
+    public static final String SENHA = "senha";
+    public static final String PESSOA_FISICA = "pessoaFisica";
     private static final String DATA_INC = "datainc";
     private static final String DATA_ALT = "dataalt";
 

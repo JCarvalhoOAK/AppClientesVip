@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import br.com.appclientesvip.Controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
@@ -36,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btnAcessar, btnSejaVip;
 
     boolean isFormularioOK, isLembrarSenha;
+
+    ClienteController controller;
 
 
     @Override
@@ -166,8 +170,15 @@ public class LoginActivity extends AppCompatActivity {
 
         isFormularioOK = false;
 
+        controller = new ClienteController(getApplicationContext());
+
 //        clienteFake = ClienteController.getClienteFake();
         cliente= new Cliente();
+
+        controller.incluir(cliente);
+        controller.alterar(cliente);
+        controller.deletar(cliente);
+        List<Cliente> clientes =controller.listar();
 
         restaurarSharedPreferences();
 
@@ -182,9 +193,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validarDadosDoUsuario() {
 
-        return ClienteController.validarDadosDoCliente(cliente,
-                editEmail.getText().toString(),
-                editSenha.getText().toString());
+        return true;
+//        return ClienteController.validarDadosDoCliente(cliente,
+//                editEmail.getText().toString(),
+//                editSenha.getText().toString());
 
     }
 

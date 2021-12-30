@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     boolean isLembrarSenha = false;
 
-    AppDataBase dataBase;
+//    AppDataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         salvarSharedPreferences();
         restaurarSharedPreferences();
 
-        dataBase = new AppDataBase(getApplicationContext());
+//        dataBase = new AppDataBase(getApplicationContext());
 
         iniciarAplicativo();
 
