@@ -23,6 +23,7 @@
 
     <!-- Chamada Geral  -->
     <string name="txtCliente">Cliente</string>
+    <string name="txtHintEmailCadastrado">Email de cadastro</string>
 
 
 

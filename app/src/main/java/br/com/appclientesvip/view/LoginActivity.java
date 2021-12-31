@@ -13,10 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
 import br.com.appclientesvip.Controller.ClienteController;
 import br.com.appclientesvip.R;
@@ -32,10 +33,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
 
-    TextView txtRecuperarSenha, txtLerPolitica;
+    TextView txtRecuperarSenha, txtLerPolitica, btnSejaVipNovo;
     EditText editEmail, editSenha;
     CheckBox chLembrar;
     Button btnAcessar, btnSejaVip;
+
+//    ImageView imgBackGround, imgLogo;
 
     boolean isFormularioOK, isLembrarSenha;
 
@@ -48,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initFormulario();
+        
+//        loadImages();
         
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +142,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
     private boolean validarFormulario() {
 
         boolean retorno = true;
@@ -166,6 +170,9 @@ public class LoginActivity extends AppCompatActivity {
         chLembrar   = findViewById(R.id.ckLembrar);
         btnAcessar  = findViewById(R.id.btnAcessar);
         btnSejaVip  = findViewById(R.id.btnSejaVip);
+//        btnSejaVipNovo  = findViewById(R.id.btnSejaVipNovo);
+//        imgBackGround = findViewById(R.id.imgBackground);
+//        imgLogo =   findViewById(R.id.imgLogo);
 
 
         isFormularioOK = false;
@@ -180,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
 //           cliente.setPrimeiroNome("Novo " + i);
 //           cliente.setSobreNome("Sobrenome" + i);
 //           cliente.setEmail(i + "@teste.com");
-//           cliente.setSenha(i + "_12345");
+//           cliente.setSenha(i + "12345");
 //           cliente.setPessoaFisica(false);
 //
 //           controller.incluir(cliente);
@@ -190,18 +197,18 @@ public class LoginActivity extends AppCompatActivity {
 //        cliente.setPrimeiroNome("Novo "+i);
 //        cliente.setSobreNome("Sobrenome"+i);
 //        cliente.setEmail(i+"@teste.com");
-//        cliente.setSenha(i+"_12345");
+//        cliente.setSenha(i+"12345");
 //        cliente.setPessoaFisica(false);
 //        controller.incluir(cliente);
 
 //---------------------------------------------
-//        cliente.setId(1);
-//        cliente.setPrimeiroNome("Alterado");
-//        cliente.setSobreNome("DINUovo");
-//        cliente.setEmail("teste@teste.com");
-//        cliente.setSenha("12345");
-//        cliente.setPessoaFisica(false);
-//        controller.alterar(cliente);
+        cliente.setId(1);
+        cliente.setPrimeiroNome("Alterado");
+        cliente.setSobreNome("DINUovo");
+        cliente.setEmail("teste@teste.com");
+        cliente.setSenha("12345");
+        cliente.setPessoaFisica(true);
+        controller.alterar(cliente);
 
 //---------------------------------------------
 //        cliente.setId(20);
@@ -227,6 +234,16 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+
+//    private void loadImages() {
+//
+//        Picasso.get().load(AppUtil.URL_IMG_BACKGROUND).into(imgBackGround);
+//        Picasso.get().load(AppUtil.URL_IMG_LOGO).into(imgLogo);
+//
+//
+//    }
+
 
     public void lembrarSenha(View view) {
 

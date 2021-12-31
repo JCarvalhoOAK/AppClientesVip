@@ -11,6 +11,9 @@ public class AppUtil {
     public static final String PREF_APP = "app_cliente_vip_pref";
     public static final String LOG_APP = "CLIENTE_LOG";
 
+    public static final String URL_IMG_BACKGROUND = "http:bit.ly/daaziImgBackground";
+    public static final String URL_IMG_LOGO = "http:bit.ly/daaziImgLogo";
+
     //REMOVER O VOID APOS CONCLUSAO DO SCRITP
     public static void getDataAtual(){
 
