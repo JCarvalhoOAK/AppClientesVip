@@ -8,12 +8,13 @@ public class ClientePFDataModel {
      *     private String nomeCompleto;
      */
 
-    private static final String TABELA = "clientePF";
+    public static final String TABELA = "clientePF";
 
-    private static final String ID = "id";
-    private static final String FK = "clienteID";
-    private static final String CPF = "cpf";
-    private static final String NOME_COMPLETO = "nomeCompleto";
+    public static final String ID = "id";
+    public static final String FK = "clienteID";
+    public static final String CPF = "cpf";
+    public static final String NOME_COMPLETO = "nomeCompleto";
+
     private static final String DATA_INC = "datainc";
     private static final String DATA_ALT = "dataalt";
 
@@ -42,8 +43,8 @@ public class ClientePFDataModel {
         query += FK+" INTEGER, ";
         query += CPF+" TEXT, ";
         query += NOME_COMPLETO+" TEXT, ";
-        query += DATA_INC+" TEXT, ";
-        query += DATA_ALT+" TEXT, ";
+        query += DATA_INC+" datetime default current_timestamp, ";
+        query += DATA_ALT+" datetime default current_timestamp, ";
         query += "FOREIGN KEY("+FK+") REFERENCES cliente(id) ";
 
         query += ")";

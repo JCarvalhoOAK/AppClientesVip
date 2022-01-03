@@ -23,6 +23,8 @@ import br.com.appclientesvip.model.Cliente;
 public class ClienteVipActivity extends AppCompatActivity {
 
     Cliente novoVip;
+    ClienteController controller;
+
     private SharedPreferences preferences;
 
     EditText editPrimeiroNome, editSobreNome;
@@ -30,6 +32,8 @@ public class ClienteVipActivity extends AppCompatActivity {
     Button btnSalvarContinuar, btnCancelar;
 
     boolean isFormularioOK, isPessoaFisica;
+
+    int ultimoID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,10 @@ public class ClienteVipActivity extends AppCompatActivity {
                     novoVip.setPrimeiroNome(editPrimeiroNome.getText().toString());
                     novoVip.setSobreNome(editSobreNome.getText().toString());
                     novoVip.setPessoaFisica(isPessoaFisica);
+
+                    controller.incluir(novoVip);
+
+                    ultimoID = controller.getUltimoID();
 
                     salvarSharedPreferences();
 
@@ -99,6 +107,7 @@ public class ClienteVipActivity extends AppCompatActivity {
         isFormularioOK = false;
 
         novoVip = new Cliente();
+        controller = new ClienteController(this);
 
         restaurarSharedPreferences();
 
@@ -137,13 +146,13 @@ public class ClienteVipActivity extends AppCompatActivity {
         dados.putString("primeiroNome", novoVip.getPrimeiroNome());
         dados.putString("sobreNome", novoVip.getSobreNome());
         dados.putBoolean("pessoaFisica", novoVip.isPessoaFisica());
+        dados.putInt("ultimoID",ultimoID);
         dados.apply();
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
-//        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
 
     }
 }

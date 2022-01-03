@@ -202,13 +202,13 @@ public class LoginActivity extends AppCompatActivity {
 //        controller.incluir(cliente);
 
 //---------------------------------------------
-        cliente.setId(1);
-        cliente.setPrimeiroNome("Alterado");
-        cliente.setSobreNome("DINUovo");
-        cliente.setEmail("teste@teste.com");
-        cliente.setSenha("12345");
-        cliente.setPessoaFisica(true);
-        controller.alterar(cliente);
+//        cliente.setId(1);
+//        cliente.setPrimeiroNome("Alterado");
+//        cliente.setSobreNome("DINUovo");
+//        cliente.setEmail("teste@teste.com");
+//        cliente.setSenha("12345");
+//        cliente.setPessoaFisica(true);
+//        controller.alterar(cliente);
 
 //---------------------------------------------
 //        cliente.setId(20);

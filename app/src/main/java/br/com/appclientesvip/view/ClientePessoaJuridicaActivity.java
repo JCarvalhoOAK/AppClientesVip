@@ -14,6 +14,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.com.appclientesvip.Controller.ClientePFController;
+import br.com.appclientesvip.Controller.ClientePJController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -23,6 +25,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
     Cliente novoVip;
     ClientePJ novoClientePJ;
+    ClientePJController controller;
 
     private SharedPreferences preferences;
 
@@ -31,6 +34,9 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
     Button btnSalvarContinuar, btnVoltar, btnCancelar;
     boolean isFormularioOK, isSimplesNacional, isMEI;
+
+    int  ultimoIDClientePF;
+//    int ultimoIDClientePJ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +50,16 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isFormularioOK = validarFormulario()) {
 
+                    //TODO: SETAR o valor do ultimo cliente incluido
+                    novoClientePJ.setClientePFID(ultimoIDClientePF);
                     novoClientePJ.setCnpj(editCNPJ.getText().toString());
                     novoClientePJ.setRazaoSocial(editRazaoSocial.getText().toString());
                     novoClientePJ.setDataAbertura(editDataAberturaPJ.getText().toString());
 
                     novoClientePJ.setSimplesNacional(isSimplesNacional);
                     novoClientePJ.setMei(isMEI);
+
+                    controller.incluir(novoClientePJ);
 
                     salvarSharedPreferences();
 
@@ -122,12 +132,12 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
     private void initFormulario() {
 
-        chSimples = findViewById(R.id.chSimplesNacional);
-        chMEI   =   findViewById(R.id.chMEI);
-
         editCNPJ = findViewById(R.id.editCNPJ);
         editRazaoSocial = findViewById(R.id.editRazaoSocial);
         editDataAberturaPJ = findViewById(R.id.editDataAberturaPJ);
+
+        chSimples = findViewById(R.id.chSimplesNacional);
+        chMEI   =   findViewById(R.id.chMEI);
 
         btnSalvarContinuar = findViewById(R.id.btnSalvarContinuar);
         btnVoltar = findViewById(R.id.btnVoltar);
@@ -136,6 +146,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
         novoClientePJ = new ClientePJ();
         novoVip = new Cliente();
+        controller = new ClientePJController(this);
 
         restaurarSharedPreferences();
 
@@ -176,6 +187,8 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
         dados.putBoolean("simplesNacional", isSimplesNacional);
         dados.putBoolean("mei", isMEI);
+//        dados.putInt("ultimoIDClientePJ", ultimoIDClientePJ);
+        dados.putInt("ultimoIDClientePF", ultimoIDClientePF);
 
         dados.apply();
     }
@@ -183,6 +196,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
+        ultimoIDClientePF = preferences.getInt("ultimoIDClientePF", -1);
 
 
     }

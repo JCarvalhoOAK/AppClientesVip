@@ -18,6 +18,8 @@ import br.com.appclientesvip.datamodel.ClienteDataModel;
 import br.com.appclientesvip.datamodel.ClientePFDataModel;
 import br.com.appclientesvip.datamodel.ClientePJDataModel;
 import br.com.appclientesvip.model.Cliente;
+import br.com.appclientesvip.model.ClientePF;
+import br.com.appclientesvip.model.ClientePJ;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -164,7 +166,7 @@ public class AppDataBase extends SQLiteOpenHelper {
      */
     //ANOTATION COLOCADA POR MIM, VERIFICAR NECESSIDADE:
     @SuppressLint("Range")
-    public List<Cliente> list(String tabela){
+    public List<Cliente> listClientes(String tabela){
 
         List<Cliente> list = new ArrayList<>();
 
@@ -185,6 +187,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                 do {
 
                     cliente = new Cliente();
+
                     cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
                     cliente.setPrimeiroNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.PRIMEIRO_NOME)));
                     cliente.setSobreNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRE_NOME)));
@@ -204,6 +207,119 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
         return list;
+
+    }
+
+    @SuppressLint("Range")
+    public List<ClientePF> listClientesPessoaFisica(String tabela){
+
+        List<ClientePF> list = new ArrayList<>();
+
+        ClientePF clientePF;
+
+        String sql ="SELECT * FROM " +tabela;
+
+        try {
+
+            cursor = db.rawQuery(sql, null);
+
+            //Enquanto houver registros na tabela e u poderei lê-los
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                    clientePF = new ClientePF();
+
+                    clientePF.setId(cursor.getInt(cursor.getColumnIndex(ClientePFDataModel.ID)));
+                    clientePF.setClienteID(cursor.getInt(cursor.getColumnIndex(ClientePFDataModel.FK)));
+                    clientePF.setNomeCompleto(cursor.getString(cursor.getColumnIndex(ClientePFDataModel.NOME_COMPLETO)));
+                    clientePF.setCpf(cursor.getString(cursor.getColumnIndex(ClientePFDataModel.CPF)));
+
+                    list.add(clientePF);
+
+                } while (cursor.moveToNext());
+                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
+
+            }
+        }catch(SQLException e){
+            Log.e(AppUtil.LOG_APP,"Falha ao executar o LIST(): " +tabela);
+            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+        }
+
+        return list;
+
+    }
+
+    @SuppressLint("Range")
+    public List<ClientePJ> listClientesPessoaJuridica(String tabela){
+
+        List<ClientePJ> list = new ArrayList<>();
+
+        ClientePJ clientePJ;
+
+        String sql ="SELECT * FROM " +tabela;
+
+        try {
+
+            cursor = db.rawQuery(sql, null);
+
+            //Enquanto houver registros na tabela e u poderei lê-los
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                    clientePJ = new ClientePJ();
+
+                    clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.ID)));
+                    clientePJ.setClientePFID(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.FK)));
+                    clientePJ.setRazaoSocial(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.RAZAO_SOCIAL)));
+                    clientePJ.setDataAbertura(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.DATA_ABERTURA)));
+
+                    clientePJ.setSimplesNacional(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.SIMPLES_NACIONAL)) == 1);
+                    clientePJ.setMei(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.MEI)) == 1);
+
+                    list.add(clientePJ);
+
+                } while (cursor.moveToNext());
+                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
+
+            }
+        }catch(SQLException e){
+            Log.e(AppUtil.LOG_APP,"Falha ao executar o LIST(): " +tabela);
+            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+        }
+
+        return list;
+
+    }
+
+    @SuppressLint("Range")
+    public int getLastPK(String tabela){
+
+        String sql ="SELECT seq FROM sqlite_sequence WHERE name = '" +tabela+ "'";
+
+        try {
+
+            Log.e(AppUtil.LOG_APP,"SQL RAW: " + sql);
+            cursor = db.rawQuery(sql, null);
+
+            //Enquanto houver registros na tabela e u poderei lê-los
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                    return  cursor.getInt(cursor.getColumnIndex("seq"));
+
+                } while (cursor.moveToNext());
+//                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
+
+            }
+        }catch(SQLException e){
+            Log.e(AppUtil.LOG_APP,"Erro recuperando ultimo PK: " +tabela);
+            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+        }
+
+        return -1;
 
     }
 

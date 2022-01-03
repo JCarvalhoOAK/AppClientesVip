@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.com.appclientesvip.Controller.ClientePFController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -22,6 +23,7 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
     Cliente novoVip;
     ClientePF novoClientePF;
+    ClientePFController controller;
 
     private SharedPreferences preferences;
 
@@ -29,6 +31,8 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
     Button btnSalvarContinuar, btnVoltar, btnCancelar;
 
     boolean isFormularioOK, isPessoaFisica;
+
+    int clienteID, ultimoIDClientePF;
 
 
     @Override
@@ -43,8 +47,15 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isFormularioOK = validarFormulario()) {
 
+                    novoClientePF.setClienteID(clienteID);
+                    //TODO: novoClientePF.setClienteID(clienteID);
+                    //novoClientePF.setClienteID(ultimoIDClientePF);
                     novoClientePF.setCpf(editCPF.getText().toString());
                     novoClientePF.setNomeCompleto(editNomeCompleto.getText().toString());
+
+
+                    ultimoIDClientePF = controller.getUltimoID();
+                    controller.incluir(novoClientePF);
 
                     salvarSharedPreferences();
 
@@ -110,6 +121,8 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
         novoClientePF = new ClientePF();
         novoVip = new Cliente();
 
+        controller = new ClientePFController(this);
+
         restaurarSharedPreferences();
 
     }
@@ -146,6 +159,8 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
         dados.putString("cpf", editCPF.getText().toString());
         dados.putString("nomeCompleto", editNomeCompleto.getText().toString());
+        dados.putInt("ultimoIDClientePF", ultimoIDClientePF);
+        //TODO: dados.putInt("ultimoIDClientePF", ultimoIDClientePF);
         dados.apply();
     }
 
@@ -153,6 +168,8 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        //TODO:   ultimoIDClientePF = preferences.getInt("ultimoIDClientePF", -1);
+        clienteID = preferences.getInt("clienteID", -1);
 
     }
 }

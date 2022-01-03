@@ -32,6 +32,7 @@ public class ClienteController extends AppDataBase {
         return insert(TABELA, dados);
 
     }
+
     public boolean alterar(Cliente obj){
 
         dados = new ContentValues();
@@ -45,14 +46,22 @@ public class ClienteController extends AppDataBase {
         return update(TABELA, dados);
 
     }
+
     public boolean deletar(Cliente obj){
 
         return delete(TABELA, obj.getId());
 
     }
+
     public List<Cliente> listar(){
 
-        return list(TABELA);
+        return listClientes(TABELA);
+
+    }
+
+    public int getUltimoID(){
+
+        return getLastPK(TABELA);
 
     }
 
