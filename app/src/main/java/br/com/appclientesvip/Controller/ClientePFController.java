@@ -9,6 +9,7 @@ import java.util.List;
 
 import br.com.appclientesvip.api.AppDataBase;
 import br.com.appclientesvip.datamodel.ClientePFDataModel;
+import br.com.appclientesvip.datamodel.ClientePJDataModel;
 import br.com.appclientesvip.model.ClientePF;
 
 public class ClientePFController extends AppDataBase {
@@ -24,11 +25,11 @@ public class ClientePFController extends AppDataBase {
 
         dados = new ContentValues();
 
-        //TODO: Verificar se aqui não seria obj.getId()
         dados.put(ClientePFDataModel.FK, obj.getClienteID());
         dados.put(ClientePFDataModel.NOME_COMPLETO, obj.getNomeCompleto());
         dados.put(ClientePFDataModel.CPF, obj.getCpf());
 
+        //TODO: AQUI ESTÀ TRAZENDO O CLIENTE ID ERRADO -1:
         return insert(TABELA, dados);
 
     }

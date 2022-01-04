@@ -32,7 +32,8 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
     boolean isFormularioOK, isPessoaFisica;
 
-    int clienteID, ultimoIDClientePF;
+    int ultimoIDClientePF;
+    int clienteID;
 
 
     @Override
@@ -47,15 +48,13 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isFormularioOK = validarFormulario()) {
 
-                    novoClientePF.setClienteID(clienteID);
-                    //TODO: novoClientePF.setClienteID(clienteID);
-                    //novoClientePF.setClienteID(ultimoIDClientePF);
+//                    novoClientePF.setClienteID(ultimoIDClientePF); //here my add
                     novoClientePF.setCpf(editCPF.getText().toString());
                     novoClientePF.setNomeCompleto(editNomeCompleto.getText().toString());
+                    novoClientePF.setClienteID(clienteID);
 
-
-                    ultimoIDClientePF = controller.getUltimoID();
                     controller.incluir(novoClientePF);
+                    ultimoIDClientePF = controller.getUltimoID();
 
                     salvarSharedPreferences();
 
@@ -124,7 +123,6 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
         controller = new ClientePFController(this);
 
         restaurarSharedPreferences();
-
     }
 
     private boolean validarFormulario() {
@@ -135,6 +133,19 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
             editCPF.setError("*");
             editCPF.requestFocus();
             retorno = false;
+        }
+        if(!AppUtil.isCPF(editCPF.getText().toString())){
+
+            editCPF.setError("*");
+            editCPF.requestFocus();
+            retorno = false;
+
+            Toast.makeText(this, R.string.cpfInvalido, Toast.LENGTH_LONG).show();
+
+        }else{
+
+            editCPF.setText(AppUtil.mascaraCPF(editCPF.getText().toString()));
+
         }
         if (TextUtils.isEmpty(editNomeCompleto.getText().toString())) {
             editNomeCompleto.setError("*");
@@ -160,7 +171,7 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
         dados.putString("cpf", editCPF.getText().toString());
         dados.putString("nomeCompleto", editNomeCompleto.getText().toString());
         dados.putInt("ultimoIDClientePF", ultimoIDClientePF);
-        //TODO: dados.putInt("ultimoIDClientePF", ultimoIDClientePF);
+
         dados.apply();
     }
 
@@ -168,8 +179,9 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
-        //TODO:   ultimoIDClientePF = preferences.getInt("ultimoIDClientePF", -1);
         clienteID = preferences.getInt("clienteID", -1);
+
+        novoVip.setId(clienteID); //My Add
 
     }
 }

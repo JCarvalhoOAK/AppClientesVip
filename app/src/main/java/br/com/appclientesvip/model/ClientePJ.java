@@ -12,30 +12,6 @@ public class ClientePJ extends ClientePF{
     private boolean simplesNacional;
     private boolean mei;
 
-
-//    public ClientePJ(int id, int clientePFID, String cnpj, String razaoSocial, String dataAbertura, boolean simplesNacional, boolean mei) {
-//        this.id = id;
-//        this.clientePFID = clientePFID;
-//        this.cnpj = cnpj;
-//        this.razaoSocial = razaoSocial;
-//        this.dataAbertura = dataAbertura;
-//        this.simplesNacional = simplesNacional;
-//        this.mei = mei;
-//    }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        ClientePJ clientePJ = (ClientePJ) o;
-//        return id == clientePJ.id && clientePFID == clientePJ.clientePFID && simplesNacional == clientePJ.simplesNacional && mei == clientePJ.mei && cnpj.equals(clientePJ.cnpj) && razaoSocial.equals(clientePJ.razaoSocial) && dataAbertura.equals(clientePJ.dataAbertura);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, clientePFID, cnpj, razaoSocial, dataAbertura, simplesNacional, mei);
-//    }
-
     @Override
     public int getId() {
         return id;

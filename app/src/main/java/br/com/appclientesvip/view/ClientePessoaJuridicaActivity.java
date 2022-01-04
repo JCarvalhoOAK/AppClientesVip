@@ -161,6 +161,19 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
             editCNPJ.requestFocus();
             retorno = false;
         }
+        if(!AppUtil.isCNPJ(editCNPJ.getText().toString())){
+
+            editCNPJ.setError("*");
+            editCNPJ.requestFocus();
+            retorno = false;
+
+            Toast.makeText(this, R.string.cnpjInvalido, Toast.LENGTH_LONG).show();
+
+        }else{
+
+            editCNPJ.setText(AppUtil.mascaraCNPJ(editCNPJ.getText().toString()));
+
+        }
         if (TextUtils.isEmpty(editRazaoSocial.getText().toString())) {
             editRazaoSocial.setError("*");
             editRazaoSocial.requestFocus();
@@ -187,7 +200,6 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
         dados.putBoolean("simplesNacional", isSimplesNacional);
         dados.putBoolean("mei", isMEI);
-//        dados.putInt("ultimoIDClientePJ", ultimoIDClientePJ);
         dados.putInt("ultimoIDClientePF", ultimoIDClientePF);
 
         dados.apply();

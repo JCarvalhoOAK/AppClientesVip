@@ -65,14 +65,14 @@
     <string name="txtTermo">Li e concordo com os termos de uso e política de privacidade.</string>
 
     <!-- Cadastro CPF    -->
-    <string name="txtCPF">CPF</string>
+    <string name="txtCPF">CPF(Somente Números)</string>
     <string name="txtClientePessoaFisica">Pessoa Física</string>
     <string name="txtHintCPF">Digite o seu CPF</string>
     <string name="txtNomeCompleto">Nome Completo</string>
     <string name="txtHintNomeCompleto">Nome Completo igual está no CPF</string>
 
     <!-- Cadastro CNPJ    -->
-    <string name="txtCNPJ">CNPJ</string>
+    <string name="txtCNPJ">CNPJ(Somente Números)</string>
     <string name="txtClientePessoaJuridica">Pessoa Jurídica</string>
     <string name="txtHintCNPJ">Digite seu CNPJ</string>
     <string name="txtRazaoSocial">Razão Social</string>
@@ -87,6 +87,8 @@
     <string name="txtHintRecuperarEmail">Digite o Email cadastrado</string>
 
     <!--  AVISOS GERAIS  -->
+    <string name="cpfInvalido">CPF inválido !</string>
+    <string name="cnpjInvalido">CNPJ inválido !</string>
     <string name="welcomeFulano">Seja Bem Vindo!</string>
     <string name="volteSempre">Volte sempre e obrigado!</string>
     <string name="atencao">ATENÇÃO!</string>
