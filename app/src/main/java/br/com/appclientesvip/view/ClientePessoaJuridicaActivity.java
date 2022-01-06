@@ -99,17 +99,6 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
                     }
                 });
                 lerPoliticaDeUso.setNegativeButton(R.string.nao, null);
-//                lerPoliticaDeUso.setNegativeButton("Recusar", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        Toast.makeText(getApplicationContext(),
-//                                "Lamentamos, mas é necessario aceitar para prosseguir!",
-//                                Toast.LENGTH_LONG).show();
-//                        finish();
-//                        return;
-//                    }
-//                });
-
                 lerPoliticaDeUso.create().show();
 
             }
@@ -132,7 +121,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
 
     private void initFormulario() {
 
-        editCNPJ = findViewById(R.id.editCNPJ);
+        editCNPJ    = findViewById(R.id.editCNPJ);
         editRazaoSocial = findViewById(R.id.editRazaoSocial);
         editDataAberturaPJ = findViewById(R.id.editDataAberturaPJ);
 
@@ -194,8 +183,8 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-        dados.putString("razaoSocial", editRazaoSocial.getText().toString());
         dados.putString("cnpj", editCNPJ.getText().toString());
+        dados.putString("razaoSocial", editRazaoSocial.getText().toString());
         dados.putString("dataAbertura", editDataAberturaPJ.getText().toString());
 
         dados.putBoolean("simplesNacional", isSimplesNacional);

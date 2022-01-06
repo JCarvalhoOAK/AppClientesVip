@@ -17,6 +17,7 @@ import java.util.List;
 import br.com.appclientesvip.datamodel.ClienteDataModel;
 import br.com.appclientesvip.datamodel.ClientePFDataModel;
 import br.com.appclientesvip.datamodel.ClientePJDataModel;
+import br.com.appclientesvip.datamodel.TesteDataModel;
 import br.com.appclientesvip.model.Cliente;
 import br.com.appclientesvip.model.ClientePF;
 import br.com.appclientesvip.model.ClientePJ;
@@ -54,6 +55,8 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Criar as tabelas
         //String sqlTabelaCliente = "CREATE TABLE cliente (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, email TEXT, status INTEGER, datainc TEXT, dataalt TEXT)";
+//        String sqlTabelaCliente = "CREATE TABLE clientePJ (id INTEGER PRIMARY KEY AUTOINCREMENT, clientePFID INTEGER, cnpj TEXT, " +
+//                "razao_social TEXT, data_abertura TEXT, simplesNacional INTEGER, mei INTEGER, datainc datetime default current_timestamp, dataalt datetime default current_timestamp)";
 
         try{
            //Tenta executar o que desejamos
@@ -95,6 +98,20 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         }
 
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(TesteDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB Teste: " + TesteDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB Teste: " + e.getMessage());
+
+        }
+
     }
 
     @Override
@@ -117,7 +134,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         }catch(SQLException e){
             Log.e(AppUtil.LOG_APP,"Falha ao executar o INSERT(): " +e.getMessage());
         }
-
+        //TODO: Aqui está retornando falso, não está inserindo na tabela
         return sucesso;
 
     }
@@ -272,6 +289,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
                     clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.ID)));
                     clientePJ.setClientePFID(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.FK)));
+                    clientePJ.setCnpj(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.CNPJ)));
                     clientePJ.setRazaoSocial(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.RAZAO_SOCIAL)));
                     clientePJ.setDataAbertura(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.DATA_ABERTURA)));
 

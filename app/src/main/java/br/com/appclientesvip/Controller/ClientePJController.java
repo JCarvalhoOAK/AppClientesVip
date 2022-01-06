@@ -27,6 +27,7 @@ public class ClientePJController extends AppDataBase {
         dados = new ContentValues();
 
         dados.put(ClientePJDataModel.FK, obj.getClientePFID());
+        dados.put(ClientePJDataModel.CNPJ, obj.getCnpj());
         dados.put(ClientePJDataModel.RAZAO_SOCIAL, obj.getRazaoSocial());
         dados.put(ClientePJDataModel.DATA_ABERTURA, obj.getDataAbertura());
 
@@ -44,6 +45,7 @@ public class ClientePJController extends AppDataBase {
         dados.put(ClientePJDataModel.ID, obj.getId());
         dados.put(ClientePJDataModel.FK, obj.getClienteID());
         dados.put(ClientePJDataModel.RAZAO_SOCIAL, obj.getRazaoSocial());
+        dados.put(ClientePJDataModel.CNPJ, obj.getCnpj());
         dados.put(ClientePJDataModel.DATA_ABERTURA, obj.getDataAbertura());
 
         dados.put(ClientePJDataModel.SIMPLES_NACIONAL, obj.isSimplesNacional());

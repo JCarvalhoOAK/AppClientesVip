@@ -6,8 +6,8 @@ public class ClientePJ extends ClientePF{
 
     private int id;
     private int clientePFID;
-    private String cnpj;
     private String razaoSocial;
+    private String cnpj;
     private String dataAbertura;
     private boolean simplesNacional;
     private boolean mei;

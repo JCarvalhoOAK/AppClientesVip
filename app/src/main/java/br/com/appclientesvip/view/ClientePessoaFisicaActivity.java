@@ -48,7 +48,6 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isFormularioOK = validarFormulario()) {
 
-//                    novoClientePF.setClienteID(ultimoIDClientePF); //here my add
                     novoClientePF.setCpf(editCPF.getText().toString());
                     novoClientePF.setNomeCompleto(editNomeCompleto.getText().toString());
                     novoClientePF.setClienteID(clienteID);
