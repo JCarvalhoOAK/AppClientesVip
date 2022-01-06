@@ -8,9 +8,29 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorBranco">#FFFFFFFF</color>
-    <color name="colorAccent">#FF5722</color>
+<!--    <color name="colorAccent">#FF5722</color>-->
     <color name="colorAzulBotao">#00BCD4</color>
+    <color name="colorBlue">#00BCD4</color>
     <color name="colorVerde">#1A5C0B</color>
+
+    <color name="colorPrimary">#E8711B</color>
+    <color name="colorPrimaryDark">#BA2D1F</color>
+    <color name="colorAccent">#93020F</color>
+
+    <color name="colorPrimaryReceita">#32B617</color>
+    <color name="colorPrimaryDarkReceita">#227E34</color>
+    <color name="colorAccentReceita">#4A870A</color>
+
+    <color name="colorPrimaryDespesa">#F40303</color>
+    <color name="colorPrimaryDarkDespesa">#83261D</color>
+    <color name="colorAccentDespesa">#93020F</color>
+
+    <color name="colorPrimaryWhats">#075E54</color>
+    <color name="colorPrimaryDarkWhats">#227E34</color>
+    <color name="colorAccentWhats">#4A870A</color>
+
+    <color name="balaoRemetente">#dbf9c4</color>
+    <color name="balaoDestinatario">#FFFFFF</color>
 
 
 </resources>

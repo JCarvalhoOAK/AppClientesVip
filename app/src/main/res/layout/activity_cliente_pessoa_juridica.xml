@@ -9,124 +9,176 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/custom_background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtAppName"
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="16dp"
-                android:text="@string/app_name"
-                android:textSize="36sp"
-                android:textStyle="bold" />
+                android:background="@drawable/custom_white_background_radius_force"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:outlineAmbientShadowColor="@color/black"
+                >
 
+                <TextView
+                    android:id="@+id/txtClientePessoaJuridica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:text="@string/txtClientePessoaJuridica"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
-            <TextView
-                android:id="@+id/txtClientePessoaJuridica"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="8dp"
-                android:text="@string/txtClientePessoaJuridica"
-                android:textSize="36sp"
-                android:textStyle="bold" />
+                android:background="@drawable/custom_white_background_radius"
+                android:layout_margin="20dp"
+                android:outlineAmbientShadowColor="@color/black"
+                >
 
-            <TextView
-                android:id="@+id/txtCNPJ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16sp"
-                android:text="@string/txtCNPJ"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtCNPJ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16sp"
+                        android:text="@string/txtCNPJ"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:ems="10"/>
 
-            <EditText
-                android:id="@+id/editCNPJ"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:ems="10"
-                android:hint="@string/txtHintCNPJ"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/editCNPJ"
+                        android:hint="@string/txtHintCNPJ"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:ems="10"
+                        />
 
-            <TextView
-                android:id="@+id/txtRazaoSocial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16sp"
-                android:text="@string/txtRazaoSocial"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/txtRazaoSocial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16sp"
+                        android:text="@string/txtRazaoSocial"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:ems="10"/>
 
-            <EditText
-                android:id="@+id/editRazaoSocial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:ems="10"
-                android:hint="@string/txtHintRazaoSocial"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/editRazaoSocial"
+                        android:hint="@string/txtHintRazaoSocial"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:ems="10"
+                        />
 
-            <TextView
-                android:id="@+id/txtDataAberturaPJ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16sp"
-                android:text="@string/txtDataAbertura"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/txtDataAberturaPJ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16sp"
+                        android:text="@string/txtDataAbertura"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:ems="10"/>
 
-            <EditText
-                android:id="@+id/editDataAberturaPJ"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:ems="10"
-                android:gravity="left"
-                android:hint="@string/txtHintDataAbertura"
-                android:inputType="date" />
+                    <EditText
+                        android:id="@+id/editDataAberturaPJ"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:hint="@string/txtHintDataAbertura"
+                        android:inputType="date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:ems="10"/>
 
-            <CheckBox
-                android:id="@+id/chSimplesNacional"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:onClick="simplesNacional"
-                android:layout_gravity="left"
-                android:text="@string/ckSimplesNacional"
-                android:textStyle="bold" />
+                    <CheckBox
+                        android:id="@+id/chSimplesNacional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:onClick="simplesNacional"
+                        android:layout_gravity="left"
+                        android:text="@string/ckSimplesNacional"
+                        android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/chMEI"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:onClick="mei"
-                android:layout_gravity="left"
-                android:text="@string/ckMei"
-                android:textStyle="bold" />
+                    <CheckBox
+                        android:id="@+id/chMEI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:onClick="mei"
+                        android:layout_gravity="left"
+                        android:text="@string/ckMei"
+                        android:textStyle="bold" />
 
-
+                </LinearLayout>
+            </RelativeLayout>
             <Button
                 android:id="@+id/btnSalvarContinuar"
+                android:text="@string/btnSalvarContinuar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginRight="16dp"
-                android:text="@string/btnSalvarContinuar" />
+                android:background="@drawable/custom_background"
+                android:shadowColor="@color/black"
+                android:shadowRadius="45"
+                android:textColor="@color/colorBranco"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -140,21 +192,37 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:text="@string/btnVoltar"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginRight="16dp"
-                    android:text="@string/btnVoltar" />
+                    android:background="@drawable/custom_background"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:textColor="@color/colorBranco"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
                 <Button
                     android:id="@+id/btnCancelar"
+                    android:text="@string/btnCancelar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginRight="16dp"
-                    android:text="@string/btnCancelar" />
+                    android:background="@drawable/custom_background"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:textColor="@color/colorBranco"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
             </LinearLayout>
 
         </LinearLayout>

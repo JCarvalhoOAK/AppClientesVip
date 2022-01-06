@@ -7,7 +7,8 @@
     tools:context=".view.CredencialDeAcessoActivity">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/custom_background">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,115 +16,200 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/txtFinalizacaoCadastro"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="8dp"
-                android:foregroundGravity="center"
-                android:gravity="center"
-                android:text="@string/txtFinalizacaoCadastro"
-                android:textSize="36sp"
-                android:textStyle="bold" />
+                android:background="@drawable/custom_white_background_radius_force"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:outlineAmbientShadowColor="@color/black"
+                >
 
-            <TextView
-                android:id="@+id/txtNomeUser"
+                <TextView
+                    android:id="@+id/txtFinalizacaoCadastro"
+                    android:text="@string/txtFinalizacaoCadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16sp"
-                android:text="@string/txtNome"
-                android:textStyle="bold" />
+                android:background="@drawable/custom_white_background_radius"
+                android:layout_margin="20dp"
+                android:outlineAmbientShadowColor="@color/black"
+                >
 
-            <EditText
-                android:id="@+id/editNomeUser"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtNomeUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16sp"
+                        android:text="@string/txtNome"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editNomeUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="16dp"
+                        android:enabled="false"
+                        android:ems="10"
+                        android:hint="@string/txtHintNome"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16sp"
+                        android:text="@string/txtEmail"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="16dp"
+                        android:ems="10"
+                        android:hint="@string/txtHintEmail"
+                        android:inputType="textEmailAddress" />
+
+                    <TextView
+                        android:id="@+id/txtSenhaA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/txtSenhaA"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editSenhaA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="16dp"
+                        android:ems="10"
+                        android:hint="@string/txtHintSenhaA"
+                        android:inputType="numberPassword" />
+
+                    <TextView
+                        android:id="@+id/txtSenhaB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/txtSenhaB"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editSenhaB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="16dp"
+                        android:ems="10"
+                        android:hint="@string/txtHintSenhaB"
+                        android:inputType="numberPassword" />
+
+                    <CheckBox
+                        android:id="@+id/ckTermo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:onClick="validarTermo"
+                        android:text="@string/acordoUsolido"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnCadastroUser"
+                        android:text="@string/btnCadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
+                        android:background="@drawable/custom_background"
+                        android:shadowColor="@color/black"
+                        android:shadowRadius="45"
+                        android:textColor="@color/colorBranco"
+                        android:textSize="16dp"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+            </RelativeLayout>
+               <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:enabled="false"
-                android:ems="10"
-                android:hint="@string/txtHintNome"
-                android:inputType="textPersonName" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16sp"
-                android:text="@string/txtEmail"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:ems="10"
-                android:hint="@string/txtHintEmail"
-                android:inputType="textEmailAddress" />
-
-            <TextView
-                android:id="@+id/txtSenhaA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="@string/txtSenhaA"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editSenhaA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:ems="10"
-                android:hint="@string/txtHintSenhaA"
-                android:inputType="numberPassword" />
-
-            <TextView
-                android:id="@+id/txtSenhaB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="@string/txtSenhaB"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editSenhaB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"
-                android:ems="10"
-                android:hint="@string/txtHintSenhaB"
-                android:inputType="numberPassword" />
-
-            <CheckBox
-                android:id="@+id/ckTermo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:onClick="validarTermo"
-                android:text="@string/acordoUsolido"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnCadastroUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/btnCadastro" />
-
-
+                <Button
+                    android:id="@+id/btnVoltar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/btnVoltar"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/custom_background"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:textColor="@color/colorBranco"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
+                <Button
+                    android:id="@+id/btnCancelar"
+                    android:text="@string/btnCancelar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/custom_background"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:textColor="@color/colorBranco"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
