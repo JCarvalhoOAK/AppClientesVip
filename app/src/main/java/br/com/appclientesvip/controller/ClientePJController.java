@@ -1,4 +1,4 @@
-package br.com.appclientesvip.Controller;
+package br.com.appclientesvip.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +8,7 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import br.com.appclientesvip.api.AppDataBase;
-import br.com.appclientesvip.datamodel.ClientePFDataModel;
 import br.com.appclientesvip.datamodel.ClientePJDataModel;
-import br.com.appclientesvip.model.ClientePF;
 import br.com.appclientesvip.model.ClientePJ;
 
 public class ClientePJController extends AppDataBase {
@@ -70,6 +68,14 @@ public class ClientePJController extends AppDataBase {
     public int getUltimoID(){
 
         return getLastPK(TABELA);
+
+    }
+
+    public ClientePJ getClientePJByFK(int idFK){
+
+        // idPK é a chave primária da tabela Cliente (id)
+
+        return getClientePJByFK(ClientePJDataModel.TABELA, idFK);
 
     }
 

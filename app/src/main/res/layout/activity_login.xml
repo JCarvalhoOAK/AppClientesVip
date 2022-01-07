@@ -114,7 +114,7 @@
                             android:layout_marginRight="16dp"
                             android:ems="10"
                             android:hint="@string/txtHintSenhaA"
-                            android:inputType="numberPassword" />
+                            android:inputType="textPassword" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.LinearLayoutCompat

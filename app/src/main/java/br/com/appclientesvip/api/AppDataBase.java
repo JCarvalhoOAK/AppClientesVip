@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.appclientesvip.controller.ClientePFController;
+import br.com.appclientesvip.controller.ClientePJController;
 import br.com.appclientesvip.datamodel.ClienteDataModel;
 import br.com.appclientesvip.datamodel.ClientePFDataModel;
 import br.com.appclientesvip.datamodel.ClientePJDataModel;
@@ -44,8 +46,12 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
+    Context context;
+
     public AppDataBase(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+
+        this.context = context;
 
         db = getWritableDatabase();
 
@@ -127,6 +133,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     public boolean insert(String tabela, ContentValues dados){
 
         boolean sucesso = true;
+
         try{
             Log.i(AppUtil.LOG_APP,"Sucesso ao executar o INSERT(): ");
             sucesso = db.insert(tabela,null, dados)>0;
@@ -183,22 +190,23 @@ public class AppDataBase extends SQLiteOpenHelper {
      */
     //ANOTATION COLOCADA POR MIM, VERIFICAR NECESSIDADE:
     @SuppressLint("Range")
-    public List<Cliente> listClientes(String tabela){
+    public List<Cliente> listClientes(String tabela) {
 
         List<Cliente> list = new ArrayList<>();
 
         Cliente cliente;
+        ClientePFController controllerPF = new ClientePFController(context);
+        ClientePJController controllerPJ = new ClientePJController(context);
 
-        //Select no banco de dados
-        //SELECT * FROM tabela
+        // Select no banco de dados
+        // SELECT * FROM tabela
 
-        String sql ="SELECT * FROM " +tabela;
+        String sql = "SELECT * FROM " + tabela;
 
         try {
 
             cursor = db.rawQuery(sql, null);
 
-            //Enquanto houver registros na tabela e u poderei lê-los
             if (cursor.moveToFirst()) {
 
                 do {
@@ -212,35 +220,43 @@ public class AppDataBase extends SQLiteOpenHelper {
                     cliente.setSenha(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SENHA)));
                     cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
 
+
+                    cliente.setClientePF(controllerPF.getClientePFByFK(cliente.getId()));
+
+                    if(!cliente.isPessoaFisica())
+                        cliente.setClientePJ(controllerPJ.getClientePJByFK(cliente.getClientePF().getId()));
+
+
                     list.add(cliente);
 
                 } while (cursor.moveToNext());
-                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
+
+                Log.i(AppUtil.LOG_APP, tabela + " lista gerada com sucesso.");
 
             }
-        }catch(SQLException e){
-            Log.e(AppUtil.LOG_APP,"Falha ao executar o LIST(): " +tabela);
-            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+
+        } catch (SQLException e) {
+
+            Log.e(AppUtil.LOG_APP, "Erro ao listar os dados: " + tabela);
+            Log.e(AppUtil.LOG_APP, "Erro: " + e.getMessage());
         }
 
         return list;
-
     }
 
     @SuppressLint("Range")
-    public List<ClientePF> listClientesPessoaFisica(String tabela){
+    public List<ClientePF> listClientesPessoaFisica(String tabela) {
 
         List<ClientePF> list = new ArrayList<>();
 
         ClientePF clientePF;
 
-        String sql ="SELECT * FROM " +tabela;
+        String sql = "SELECT * FROM " + tabela;
 
         try {
 
             cursor = db.rawQuery(sql, null);
 
-            //Enquanto houver registros na tabela e u poderei lê-los
             if (cursor.moveToFirst()) {
 
                 do {
@@ -255,32 +271,33 @@ public class AppDataBase extends SQLiteOpenHelper {
                     list.add(clientePF);
 
                 } while (cursor.moveToNext());
-                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
+
+                Log.i(AppUtil.LOG_APP, tabela + " lista gerada com sucesso.");
 
             }
-        }catch(SQLException e){
-            Log.e(AppUtil.LOG_APP,"Falha ao executar o LIST(): " +tabela);
-            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+
+        } catch (SQLException e) {
+
+            Log.e(AppUtil.LOG_APP, "Erro ao listar os dados: " + tabela);
+            Log.e(AppUtil.LOG_APP, "Erro: " + e.getMessage());
         }
 
         return list;
-
     }
 
     @SuppressLint("Range")
-    public List<ClientePJ> listClientesPessoaJuridica(String tabela){
+    public List<ClientePJ> listClientesPessoaJuridica(String tabela) {
 
         List<ClientePJ> list = new ArrayList<>();
 
         ClientePJ clientePJ;
 
-        String sql ="SELECT * FROM " +tabela;
+        String sql = "SELECT * FROM " + tabela;
 
         try {
 
             cursor = db.rawQuery(sql, null);
 
-            //Enquanto houver registros na tabela e u poderei lê-los
             if (cursor.moveToFirst()) {
 
                 do {
@@ -289,39 +306,47 @@ public class AppDataBase extends SQLiteOpenHelper {
 
                     clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.ID)));
                     clientePJ.setClientePFID(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.FK)));
-                    clientePJ.setCnpj(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.CNPJ)));
                     clientePJ.setRazaoSocial(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.RAZAO_SOCIAL)));
                     clientePJ.setDataAbertura(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.DATA_ABERTURA)));
 
-                    clientePJ.setSimplesNacional(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.SIMPLES_NACIONAL)) == 1);
-                    clientePJ.setMei(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.MEI)) == 1);
+                    clientePJ.setSimplesNacional
+                            (cursor.getInt(
+                                    cursor.getColumnIndex(ClientePJDataModel.SIMPLES_NACIONAL)) == 1);
+
+                    clientePJ.setMei
+                            (cursor.getInt(
+                                    cursor.getColumnIndex(ClientePJDataModel.MEI)) == 1);
 
                     list.add(clientePJ);
 
                 } while (cursor.moveToNext());
-                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
+
+                Log.i(AppUtil.LOG_APP, tabela + " lista gerada com sucesso.");
 
             }
-        }catch(SQLException e){
-            Log.e(AppUtil.LOG_APP,"Falha ao executar o LIST(): " +tabela);
-            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+
+        } catch (SQLException e) {
+
+            Log.e(AppUtil.LOG_APP, "Erro ao listar os dados: " + tabela);
+            Log.e(AppUtil.LOG_APP, "Erro: " + e.getMessage());
         }
 
         return list;
-
     }
 
     @SuppressLint("Range")
-    public int getLastPK(String tabela){
+    public int getLastPK(String tabela) {
 
-        String sql ="SELECT seq FROM sqlite_sequence WHERE name = '" +tabela+ "'";
+        // SELECT seq FROM sqlite_sequence WHERE name = "tabela"
+
+        String sql = "SELECT seq FROM sqlite_sequence WHERE name = '" + tabela + "'";
 
         try {
 
-            Log.e(AppUtil.LOG_APP,"SQL RAW: " + sql);
+            Log.e(AppUtil.LOG_APP, "SQL RAW: " + sql);
+
             cursor = db.rawQuery(sql, null);
 
-            //Enquanto houver registros na tabela e u poderei lê-los
             if (cursor.moveToFirst()) {
 
                 do {
@@ -329,15 +354,115 @@ public class AppDataBase extends SQLiteOpenHelper {
                     return  cursor.getInt(cursor.getColumnIndex("seq"));
 
                 } while (cursor.moveToNext());
-//                Log.i(AppUtil.LOG_APP,"Sucesso ao executar o LIST(): "+ tabela);
 
             }
-        }catch(SQLException e){
-            Log.e(AppUtil.LOG_APP,"Erro recuperando ultimo PK: " +tabela);
-            Log.e(AppUtil.LOG_APP,"ERRO: " + e.getMessage());
+
+        } catch (SQLException e) {
+
+            Log.e(AppUtil.LOG_APP, "Erro recuperando último PK: " + tabela);
+            Log.e(AppUtil.LOG_APP, "Erro: " + e.getMessage());
         }
 
         return -1;
+    }
+
+    @SuppressLint("Range")
+    public Cliente getClienteByID(String tabela, Cliente obj){
+
+        Cliente cliente = new Cliente();
+
+        String sql = "SELECT * FROM "+tabela+" WHERE id = "+obj.getId();
+
+        try{
+
+            cursor = db.rawQuery(sql, null);
+
+            if(cursor.moveToNext()){
+
+                cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                cliente.setPrimeiroNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.PRIMEIRO_NOME)));
+                cliente.setSobreNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRE_NOME)));
+                cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+                cliente.setSenha(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SENHA)));
+                cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
+
+            }
+
+
+        }catch (SQLException e){
+
+            Log.e(AppUtil.LOG_APP,"Erro getClienteByID "+obj.getId());
+            Log.e(AppUtil.LOG_APP,"Erro  "+e.getMessage());
+        }
+
+        return  cliente;
+
+    }
+
+    @SuppressLint("Range")
+    public ClientePF getClientePFByFK(String tabela, int idFK){
+
+        ClientePF clientePF = new ClientePF();
+
+        String sql = "SELECT * FROM "+tabela+" WHERE  "+ClientePFDataModel.FK+" = "+idFK;
+
+        try{
+
+            cursor = db.rawQuery(sql, null);
+
+            if(cursor.moveToNext()){
+
+                clientePF.setId(cursor.getInt(cursor.getColumnIndex(ClientePFDataModel.ID)));
+                clientePF.setClienteID(cursor.getInt(cursor.getColumnIndex(ClientePFDataModel.FK)));
+                clientePF.setNomeCompleto(cursor.getString(cursor.getColumnIndex(ClientePFDataModel.NOME_COMPLETO)));
+                clientePF.setCpf(cursor.getString(cursor.getColumnIndex(ClientePFDataModel.CPF)));
+                clientePF.setCpf("111.222.333-44");
+
+            }
+
+
+        }catch (SQLException e){
+
+            Log.e(AppUtil.LOG_APP,"Erro getClientePFByFK "+idFK);
+            Log.e(AppUtil.LOG_APP,"Erro  "+e.getMessage());
+        }
+
+        return  clientePF;
+
+    }
+
+    @SuppressLint("Range")
+    public ClientePJ getClientePJByFK(String tabela, int idFK){
+
+        ClientePJ clientePJ = new ClientePJ();
+
+        String sql = "SELECT * FROM "+tabela+" WHERE "+ClientePJDataModel.FK+" = "+idFK;
+
+        try{
+
+            cursor = db.rawQuery(sql, null);
+
+            if(cursor.moveToNext()){
+
+                clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.ID)));
+                clientePJ.setClientePFID(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.FK)));
+                clientePJ.setCnpj(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.CNPJ)));
+                clientePJ.setDataAbertura(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.DATA_ABERTURA)));
+                clientePJ.setRazaoSocial(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.RAZAO_SOCIAL)));
+                clientePJ.setSimplesNacional(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.SIMPLES_NACIONAL)) == 1);
+                clientePJ.setMei(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.MEI)) == 1);
+
+
+            }
+
+
+        }catch (SQLException e){
+
+            Log.e(AppUtil.LOG_APP,"Erro getClientePJByFK "+idFK);
+            Log.e(AppUtil.LOG_APP,"Erro  "+e.getMessage());
+        }
+
+        return  clientePJ;
 
     }
 

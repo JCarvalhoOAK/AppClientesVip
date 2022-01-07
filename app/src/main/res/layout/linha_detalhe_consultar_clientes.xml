@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:textAppearance="@android:style/TextAppearance.Holo.Large.Inverse"
-            android:textColor="@color/colorBranco"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
 

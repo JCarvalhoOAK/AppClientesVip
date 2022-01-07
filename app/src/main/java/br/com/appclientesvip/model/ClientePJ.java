@@ -5,7 +5,7 @@ import java.util.Objects;
 public class ClientePJ extends ClientePF{
 
     private int id;
-    private int clientePFID;
+    private int clientePFID; //FK
     private String razaoSocial;
     private String cnpj;
     private String dataAbertura;

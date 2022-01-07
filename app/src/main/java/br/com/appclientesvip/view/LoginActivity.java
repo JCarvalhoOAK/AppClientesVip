@@ -13,13 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
-import br.com.appclientesvip.Controller.ClienteController;
+import br.com.appclientesvip.controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -27,7 +24,7 @@ import br.com.appclientesvip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private android.app.AlertDialog dialog;
+//    private android.app.AlertDialog dialog;
 
     Cliente cliente;
 
@@ -54,24 +51,52 @@ public class LoginActivity extends AppCompatActivity {
         
 //        loadImages();
         
+//        btnAcessar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (isFormularioOK = validarFormulario()) {
+//
+//                    salvarSharedPreferences();
+//
+//                    if (validarDadosDoUsuario()) {
+//                        Intent intent = new Intent(
+//                                LoginActivity.this, MainActivity.class
+//                        );
+//                        startActivity(intent);
+//                        finish();
+//                        return;
+//                    } else {
+//                        Toast.makeText(getApplicationContext(),
+//                                "Verifique os dados ...",
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//
+//            }
+//        });
+
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (isFormularioOK = validarFormulario()) {
 
-                    salvarSharedPreferences();
-
                     if (validarDadosDoUsuario()) {
-                        Intent intent = new Intent(
-                                LoginActivity.this, MainActivity.class
-                        );
+
+
+                        salvarSharedPreferences();
+
+                        Intent intent =
+                                new Intent(LoginActivity.this,
+                                        MainActivity.class);
+
                         startActivity(intent);
                         finish();
                         return;
+
                     } else {
                         Toast.makeText(getApplicationContext(),
-                                "Verifique os dados ...",
-                                Toast.LENGTH_LONG).show();
+                                R.string.verifiqueDados, Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -236,11 +261,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-//    private void loadImages() {
+//    private void loadImages(){
 //
-//        Picasso.get().load(AppUtil.URL_IMG_BACKGROUND).into(imgBackGround);
-//        Picasso.get().load(AppUtil.URL_IMG_LOGO).into(imgLogo);
 //
+//        Picasso.with(this)
+//                .load(AppUtil.URL_IMG_BACKGROUD)
+//                .placeholder(R.drawable.carregando_animacao)
+//                .into(imgBackground);
+//
+//
+//
+//        Picasso.with(this).load(AppUtil.URL_IMG_LOGO).placeholder(R.drawable.carregando_animacao).into(imgLogo);
 //
 //    }
 
@@ -251,12 +282,22 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private boolean validarDadosDoUsuario() {
+    // TODO: Implementar Validação senha MD5
+    public boolean validarDadosDoUsuario() {
 
-        return true;
-//        return ClienteController.validarDadosDoCliente(cliente,
-//                editEmail.getText().toString(),
-//                editSenha.getText().toString());
+        boolean retorno = false;
+
+        // comparar as senhas
+
+        String senhaDigitadaPura = editSenha.getText().toString();
+        String senhaMD5 = cliente.getSenha();
+
+        if(senhaMD5.equals(AppUtil.gerarMD5Hash(senhaDigitadaPura))){
+            retorno = true;
+        }
+
+
+        return retorno;
 
     }
 
@@ -264,6 +305,7 @@ public class LoginActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
+
         dados.putBoolean("loginAutomatico", isLembrarSenha);
         dados.putString("emailCliente", editEmail.getText().toString());
         dados.apply();

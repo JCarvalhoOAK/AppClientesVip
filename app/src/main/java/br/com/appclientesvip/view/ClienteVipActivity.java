@@ -12,10 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import br.com.appclientesvip.Controller.ClienteController;
+import br.com.appclientesvip.controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -146,7 +145,6 @@ public class ClienteVipActivity extends AppCompatActivity {
         dados.putString("primeiroNome", novoVip.getPrimeiroNome());
         dados.putString("sobreNome", novoVip.getSobreNome());
         dados.putBoolean("pessoaFisica", novoVip.isPessoaFisica());
-        dados.putInt("ultimoID",ultimoID);
         dados.putInt("clienteID",ultimoID);
         dados.apply();
     }

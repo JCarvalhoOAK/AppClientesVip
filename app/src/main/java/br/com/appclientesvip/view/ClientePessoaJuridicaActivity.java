@@ -14,8 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.appclientesvip.Controller.ClientePFController;
-import br.com.appclientesvip.Controller.ClientePJController;
+import br.com.appclientesvip.controller.ClientePJController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -36,7 +35,6 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
     boolean isFormularioOK, isSimplesNacional, isMEI;
 
     int  ultimoIDClientePF;
-//    int ultimoIDClientePJ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +48,7 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isFormularioOK = validarFormulario()) {
 
-                    //TODO: SETAR o valor do ultimo cliente incluido
+
                     novoClientePJ.setClientePFID(ultimoIDClientePF);
                     novoClientePJ.setCnpj(editCNPJ.getText().toString());
                     novoClientePJ.setRazaoSocial(editRazaoSocial.getText().toString());
@@ -131,7 +129,6 @@ public class ClientePessoaJuridicaActivity extends AppCompatActivity {
         btnSalvarContinuar = findViewById(R.id.btnSalvarContinuar);
         btnVoltar = findViewById(R.id.btnVoltar);
         btnCancelar = findViewById(R.id.btnCancelar);
-//        isFormularioOK = false;
 
         novoClientePJ = new ClientePJ();
         novoVip = new Cliente();

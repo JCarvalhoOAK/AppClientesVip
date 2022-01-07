@@ -44,13 +44,21 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ClienteAdapter.ViewHolder holder, int position) {
 
-        Cliente oblDaLinha = aClientes.get(position);
+        Cliente objDaLinha = aClientes.get(position);
         TextView txtPrimeiroNome = holder.rvPrimeiroNome;
-        txtPrimeiroNome.setText(oblDaLinha.getPrimeiroNome());
+        txtPrimeiroNome.setText(objDaLinha.getPrimeiroNome());
 
         Button btnPessoaFisica = holder.rvPessoaFisica;
-//        btnPessoaFisica.setText(oblDaLinha.isPessoaFisica() ? R.string.txtCPF : R.string.txtCNPJ);
-        btnPessoaFisica.setText(oblDaLinha.isPessoaFisica() ? "CPF" : "CNPJ");
+//        btnPessoaFisica.setText(oblDaLinha.isPessoaFisica() ? "CPF" : "CNPJ");
+        try {
+
+            btnPessoaFisica.setText(objDaLinha.isPessoaFisica() ? "CPF: " + objDaLinha.getClientePF().getCpf() : "CNPJ: " + objDaLinha.getClientePJ().getCnpj());
+
+        }catch (Exception e){
+
+            btnPessoaFisica.setText(objDaLinha.isPessoaFisica() ? "CPF: "  : "CNPJ: ");
+
+        }
 
     }
 
@@ -59,19 +67,23 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
         return aClientes.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView rvPrimeiroNome;
+
         public Button rvPessoaFisica;
+        public TextView rvPrimeiroNome;
+        public TextView rvEmail;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             rvPrimeiroNome = itemView.findViewById(R.id.rvPrimeiroNome);
             rvPessoaFisica = itemView.findViewById(R.id.rvPessoaFisica);
+            rvEmail = itemView.findViewById(R.id.rvEmail);
+
+            Log.i(AppUtil.LOG_APP,"Nome: "+rvPrimeiroNome.getText().toString());
 
             itemView.setOnClickListener(this);
-
         }
 
         @Override

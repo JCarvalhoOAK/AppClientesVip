@@ -1,5 +1,7 @@
 package br.com.appclientesvip.api;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.InputMismatchException;
 
@@ -209,6 +211,43 @@ public class AppUtil {
     public static String mascaraCPF(String CPF) {
         return (CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." +
                 CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
+    }
+
+    /**
+     * Gerar senha criptografada com MD5.
+     * @param password
+     * @return
+     */
+    public static String gerarMD5Hash(String password) {
+
+        String retorno = "";
+
+        if(!password.isEmpty()) {
+
+            retorno = "falhou";
+
+            try {
+                // Create MD5 Hash
+                MessageDigest digest = MessageDigest.getInstance("MD5");
+                digest.update(password.getBytes());
+                byte messageDigest[] = digest.digest();
+
+                StringBuffer MD5Hash = new StringBuffer();
+                for (int i = 0; i < messageDigest.length; i++) {
+                    String h = Integer.toHexString(0xFF & messageDigest[i]);
+                    while (h.length() < 2)
+                        h = "0" + h;
+                    MD5Hash.append(h);
+                }
+
+                return MD5Hash.toString();
+
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return retorno;
     }
 
 

@@ -24,8 +24,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".view.MeusDadosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AtualizarMeusActivity"
+            android:exported="false" />
         <activity
             android:name=".view.ConsultarClientesActivity"
             android:exported="false" />

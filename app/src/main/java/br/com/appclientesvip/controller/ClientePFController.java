@@ -1,4 +1,4 @@
-package br.com.appclientesvip.Controller;
+package br.com.appclientesvip.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,7 +9,6 @@ import java.util.List;
 
 import br.com.appclientesvip.api.AppDataBase;
 import br.com.appclientesvip.datamodel.ClientePFDataModel;
-import br.com.appclientesvip.datamodel.ClientePJDataModel;
 import br.com.appclientesvip.model.ClientePF;
 
 public class ClientePFController extends AppDataBase {
@@ -29,7 +28,6 @@ public class ClientePFController extends AppDataBase {
         dados.put(ClientePFDataModel.NOME_COMPLETO, obj.getNomeCompleto());
         dados.put(ClientePFDataModel.CPF, obj.getCpf());
 
-        //TODO: AQUI ESTÀ TRAZENDO O CLIENTE ID ERRADO -1:
         return insert(TABELA, dados);
 
     }
@@ -61,6 +59,14 @@ public class ClientePFController extends AppDataBase {
     public int getUltimoID(){
 
         return getLastPK(TABELA);
+
+    }
+
+    public ClientePF getClientePFByFK(int idFK){
+
+        // idPK é a chave primária da tabela Cliente (id)
+
+        return getClientePFByFK(ClientePFDataModel.TABELA, idFK);
 
     }
 

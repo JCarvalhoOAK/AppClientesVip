@@ -6,10 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import br.com.appclientesvip.Controller.ClienteController;
+import br.com.appclientesvip.controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.ClienteAdapter;
 import br.com.appclientesvip.model.Cliente;
@@ -34,21 +33,21 @@ public class ConsultarClientesActivity extends AppCompatActivity {
         controller = new ClienteController(getApplicationContext());
 
         clientes = controller.listar();
-//        clientes = new ArrayList<>();
 
-        for (int i = 0; i < 50; i++) {
-
-            obj = new Cliente();
-            obj.setPrimeiroNome("Cliente "+i);
-            obj.setPessoaFisica(i % 2==0);
-
-            clientes.add(obj);
-
-        }
+//        for (int i = 0; i < 50; i++) {
+//
+//            obj = new Cliente();
+//            obj.setPrimeiroNome("Cliente "+i);
+//            obj.setPessoaFisica(i % 2==0);
+//
+//            clientes.add(obj);
+//
+//        }
 
         clienteAdapter = new ClienteAdapter(clientes, getApplicationContext());
 
         rvClientesVip.setAdapter(clienteAdapter);
+
         rvClientesVip.setLayoutManager(new LinearLayoutManager(this));
 
     }

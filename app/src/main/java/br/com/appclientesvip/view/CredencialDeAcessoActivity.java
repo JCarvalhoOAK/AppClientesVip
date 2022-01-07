@@ -13,7 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.appclientesvip.Controller.ClienteController;
+import br.com.appclientesvip.controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -111,14 +111,8 @@ public class CredencialDeAcessoActivity extends AppCompatActivity {
                         startActivity(iMenuPrincipal);
                         finish();
                         return;
-
                     }
-
-
-
                 }
-
-
             }
         });
 
@@ -176,7 +170,7 @@ public class CredencialDeAcessoActivity extends AppCompatActivity {
         SharedPreferences.Editor dados = preferences.edit();
 
         dados.putString("email", editEmail.getText().toString());
-        dados.putString("senha", editSenhaA.getText().toString());
+        dados.putString("senha",AppUtil.gerarMD5Hash(editSenhaA.getText().toString()));
         dados.apply();
     }
 

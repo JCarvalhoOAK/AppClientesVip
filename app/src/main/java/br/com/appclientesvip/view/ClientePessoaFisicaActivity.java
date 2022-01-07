@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.appclientesvip.Controller.ClientePFController;
+import br.com.appclientesvip.controller.ClientePFController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
 import br.com.appclientesvip.model.Cliente;
@@ -156,12 +156,6 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
 
     }
 
-//    public void pessoaFisica(View view) {
-//
-//        isPessoaFisica = chPessoaFisica.isChecked();
-//
-//    }
-
     private void salvarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
@@ -179,8 +173,6 @@ public class ClientePessoaFisicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.PREF_APP, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
         clienteID = preferences.getInt("clienteID", -1);
-
-        novoVip.setId(clienteID); //My Add
 
     }
 }
