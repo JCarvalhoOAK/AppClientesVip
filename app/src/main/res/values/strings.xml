@@ -110,7 +110,7 @@
     <string name="excluirCertesa">Confirma a exclusão definitiva da conta?</string>
     <string name="excluirGenericoCertesa">Confirma a exclusão do item?</string>
     <string name="excluidoConta">Sua conta foi excluída, esperamos que retorne em breve!</string>
-    <string name="naoRecuperou">Não foi possível, recuperar os dados do cliente?</string>
+    <string name="naoRecuperou">Não foi possível recuperar os dados do cliente!</string>
     <string name="verifiqueDados">Verifique os dados e tente novamente </string>
     <string name="txtTermoUso">TERMO DE USO</string>
     <string name="politicaPrivacidadeUso">Termos e condições de uso é o documento pelo qual um site ou um aplicativo define as regras da utilização de seu serviço pelos usuários. Ou seja, o dono da aplicação determina as condições de uso do site

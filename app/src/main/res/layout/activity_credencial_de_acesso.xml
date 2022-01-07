@@ -116,7 +116,7 @@
                         android:layout_marginRight="16dp"
                         android:ems="10"
                         android:hint="@string/txtHintSenhaA"
-                        android:inputType="numberPassword" />
+                        android:inputType="textPassword" />
 
                     <TextView
                         android:id="@+id/txtSenhaB"
@@ -135,7 +135,7 @@
                         android:layout_marginRight="16dp"
                         android:ems="10"
                         android:hint="@string/txtHintSenhaB"
-                        android:inputType="numberPassword" />
+                        android:inputType="textPassword" />
 
                     <CheckBox
                         android:id="@+id/ckTermo"

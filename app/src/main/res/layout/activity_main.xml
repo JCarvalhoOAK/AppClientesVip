@@ -11,7 +11,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/custom_background"
+        android:background="@drawable/matricule"
         >
 
         <LinearLayout
@@ -36,6 +36,9 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorBranco"
+                    android:shadowRadius="45"
                     android:text="@string/txtDataAtual" />
 
                 <TextView
@@ -45,6 +48,9 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorBranco"
+                    android:shadowRadius="45"
                     android:text="@string/txtHoraAtual" />
             </LinearLayout>
 
@@ -103,7 +109,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginRight="16dp"
-                        android:background="@drawable/custom_background"
+                        android:background="@drawable/custom_background_radius"
                         android:onClick="meusDados"
                         android:shadowColor="@color/black"
                         android:shadowRadius="45"
@@ -120,7 +126,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginRight="16dp"
-                        android:background="@drawable/custom_background"
+                        android:background="@drawable/custom_background_radius"
                         android:onClick="atualizarMeusDados"
                         android:shadowColor="@color/black"
                         android:shadowRadius="45"
@@ -137,7 +143,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginRight="16dp"
-                        android:background="@drawable/custom_background"
+                        android:background="@drawable/custom_background_radius"
                         android:onClick="excluirConta"
                         android:shadowColor="@color/black"
                         android:shadowRadius="45"
@@ -154,7 +160,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginRight="16dp"
-                        android:background="@drawable/custom_background"
+                        android:background="@drawable/custom_background_radius"
                         android:onClick="consultarClientesVip"
                         android:shadowColor="@color/black"
                         android:shadowRadius="45"
@@ -171,7 +177,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginRight="16dp"
-                        android:background="@drawable/custom_background"
+                        android:background="@drawable/custom_background_radius"
                         android:onClick="sairApp"
                         android:shadowColor="@color/black"
                         android:shadowRadius="45"

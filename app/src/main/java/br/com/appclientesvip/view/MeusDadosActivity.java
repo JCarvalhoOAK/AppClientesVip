@@ -123,7 +123,7 @@ public class MeusDadosActivity extends AppCompatActivity {
             meuAlert.setIcon(R.drawable.especializada);
             meuAlert.setTitle(R.string.atencao);
             meuAlert.setMessage(R.string.naoRecuperou);
-            meuAlert.setCancelable(true);
+            meuAlert.setCancelable(false);
 //            meuAlert.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
 //                String user = cliente.getPrimeiroNome();
 //                String r = getString(R.string.volteSempre);

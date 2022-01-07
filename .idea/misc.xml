@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background.xml" value="0.2890625" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background_radius.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_button.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_white_background_radius.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_white_background_radius_force.xml" value="0.2890625" />
@@ -16,7 +17,7 @@
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_credencial_de_acesso.xml" value="0.225" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_login_novo.xml" value="0.27291666666666664" />
-        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_main.xml" value="0.3202247191011236" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_meus_dados.xml" value="0.27291666666666664" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_recuperar_senha.xml" value="0.25885416666666666" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/layout/activity_splash.xml" value="0.25885416666666666" />
