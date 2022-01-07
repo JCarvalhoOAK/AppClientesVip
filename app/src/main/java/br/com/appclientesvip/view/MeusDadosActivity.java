@@ -98,46 +98,12 @@ public class MeusDadosActivity extends AppCompatActivity {
 
 
         }else{
-
-//            new FancyAlertDialog.Builder(MeusDadosActivity.this)
-//                    .setTitle("ATENÇÃO")
-//                    .setBackgroundColor(Color.parseColor("#303F9F"))
-//                    .setMessage("Não foi possível, recuperar os dados do cliente?")
-//                    .setNegativeBtnText("RETORNAR")
-//                    .setNegativeBtnBackground(Color.parseColor("#FF4081"))
-//                    .isCancellable(true)
-//                    .setIcon(R.mipmap.ic_launcher_round, Icon.Visible)
-//                    .OnNegativeClicked(new FancyAlertDialogListener() {
-//                        @Override
-//                        public void OnClick() {
-//
-//                            Intent intent = new Intent(MeusDadosActivity.this, MainActivity.class);
-//                            startActivity(intent);
-//
-//                        }
-//                    })
-//                    .build();
-            //-------------------------------------
             AlertDialog.Builder meuAlert = new AlertDialog.Builder(
                     MeusDadosActivity.this);
             meuAlert.setIcon(R.drawable.especializada);
             meuAlert.setTitle(R.string.atencao);
             meuAlert.setMessage(R.string.naoRecuperou);
             meuAlert.setCancelable(false);
-//            meuAlert.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-//                String user = cliente.getPrimeiroNome();
-//                String r = getString(R.string.volteSempre);
-//                String res = user + ", " + r;
-//
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    Toast.makeText(getApplicationContext(),
-//                            res,
-//                            Toast.LENGTH_LONG).show();
-//                    finish();
-//                    return;
-//                }
-//            });
             meuAlert.setNegativeButton(R.string.retornar, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

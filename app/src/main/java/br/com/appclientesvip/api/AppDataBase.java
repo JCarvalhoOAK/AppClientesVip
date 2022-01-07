@@ -307,6 +307,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                     clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.ID)));
                     clientePJ.setClientePFID(cursor.getInt(cursor.getColumnIndex(ClientePJDataModel.FK)));
                     clientePJ.setRazaoSocial(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.RAZAO_SOCIAL)));
+                    clientePJ.setCnpj(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.CNPJ)));
                     clientePJ.setDataAbertura(cursor.getString(cursor.getColumnIndex(ClientePJDataModel.DATA_ABERTURA)));
 
                     clientePJ.setSimplesNacional
@@ -416,7 +417,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                 clientePF.setClienteID(cursor.getInt(cursor.getColumnIndex(ClientePFDataModel.FK)));
                 clientePF.setNomeCompleto(cursor.getString(cursor.getColumnIndex(ClientePFDataModel.NOME_COMPLETO)));
                 clientePF.setCpf(cursor.getString(cursor.getColumnIndex(ClientePFDataModel.CPF)));
-                clientePF.setCpf("111.222.333-44");
+//                clientePF.setCpf("111.222.333-44");
 
             }
 
