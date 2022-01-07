@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/cam">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/custom_background_sec_radius"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -88,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_background_radius"
                     android:orientation="vertical">
 
                     <TextView
@@ -162,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_background_radius"
                     android:orientation="vertical">
 
                     <TextView
@@ -226,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_background_radius"
                     android:orientation="vertical">
 
 
@@ -335,7 +336,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_background_radius"
                     android:orientation="vertical">
 
                     <TextView
@@ -400,7 +401,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/custom_background_sec_radius"
                     android:orientation="vertical">
 
                     <Button

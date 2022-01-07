@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background.xml" value="0.2890625" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background_qua_radius.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background_radius.xml" value="0.2890625" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background_sec_radius.xml" value="0.2890625" />
+        <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_background_ter_radius.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_button.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_white_background_radius.xml" value="0.2890625" />
         <entry key="..\:/Android/Projects/AppClientesVip/app/src/main/res/drawable/custom_white_background_radius_force.xml" value="0.2890625" />
