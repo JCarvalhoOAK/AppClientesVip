@@ -19,7 +19,9 @@ import android.widget.Toast;
 import br.com.appclientesvip.controller.ClienteController;
 import br.com.appclientesvip.R;
 import br.com.appclientesvip.api.AppUtil;
+import br.com.appclientesvip.controller.CollaboratorTypeController;
 import br.com.appclientesvip.model.Cliente;
+import br.com.appclientesvip.model.CollaboratorType;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -27,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 //    private android.app.AlertDialog dialog;
 
     Cliente cliente;
+    CollaboratorType collaboratorType;
 
     private SharedPreferences preferences;
 
@@ -39,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
     boolean isFormularioOK, isLembrarSenha;
 
-    ClienteController controller;
+    ClienteController clienteController;
+    CollaboratorTypeController collaboratorTypeController;
 
 
     @Override
@@ -202,10 +206,27 @@ public class LoginActivity extends AppCompatActivity {
 
         isFormularioOK = false;
 
-        controller = new ClienteController(getApplicationContext());
+        clienteController = new ClienteController(getApplicationContext());
+        collaboratorTypeController = new CollaboratorTypeController(getApplicationContext());
 
 //        clienteFake = ClienteController.getClienteFake();
         cliente= new Cliente();
+        collaboratorType = new CollaboratorType();
+
+        //Popular Tipos de colaborador
+        collaboratorType.setName("Administrador");
+        collaboratorTypeController.incluir(collaboratorType);
+        collaboratorType.setName("Gerente Geral");
+        collaboratorTypeController.incluir(collaboratorType);
+        collaboratorType.setName("Gerente de Unidade");
+        collaboratorTypeController.incluir(collaboratorType);
+        collaboratorType.setName("Caixa");
+        collaboratorTypeController.incluir(collaboratorType);
+        collaboratorType.setName("Atendente vendas");
+        collaboratorTypeController.incluir(collaboratorType);
+        collaboratorType.setName("Técnico");
+        collaboratorTypeController.incluir(collaboratorType);
+
 
 //---------------------------------------------
 //       for(int i =0; i< 30; i++) {
@@ -215,7 +236,7 @@ public class LoginActivity extends AppCompatActivity {
 //           cliente.setSenha(i + "12345");
 //           cliente.setPessoaFisica(false);
 //
-//           controller.incluir(cliente);
+//           clienteController.incluir(cliente);
 //       }
 
 //---------------------------------------------
@@ -224,7 +245,7 @@ public class LoginActivity extends AppCompatActivity {
 //        cliente.setEmail(i+"@teste.com");
 //        cliente.setSenha(i+"12345");
 //        cliente.setPessoaFisica(false);
-//        controller.incluir(cliente);
+//        clienteController.incluir(cliente);
 
 //---------------------------------------------
 //        cliente.setId(1);
@@ -233,11 +254,11 @@ public class LoginActivity extends AppCompatActivity {
 //        cliente.setEmail("teste@teste.com");
 //        cliente.setSenha("12345");
 //        cliente.setPessoaFisica(true);
-//        controller.alterar(cliente);
+//        clienteController.alterar(cliente);
 
 //---------------------------------------------
 //        cliente.setId(20);
-//        controller.deletar(cliente);
+//        clienteController.deletar(cliente);
 
 //---------------------------------------------
 //        cliente.setId(1);
@@ -246,13 +267,13 @@ public class LoginActivity extends AppCompatActivity {
 //        cliente.setEmail("teste@teste.com");
 //        cliente.setSenha("12345");
 //        cliente.setPessoaFisica(false);
-//        List<Cliente> clientes =controller.listar();
+//        List<Cliente> clientes =clienteController.listar();
 
 //---------------------------------------------
-//        controller.incluir(cliente);
-//        controller.alterar(cliente);
-//        controller.deletar(cliente);
-//        List<Cliente> clientes =controller.listar();
+//        clienteController.incluir(cliente);
+//        clienteController.alterar(cliente);
+//        clienteController.deletar(cliente);
+//        List<Cliente> clientes =clienteController.listar();
 
 //---------------------------------------------
         restaurarSharedPreferences();

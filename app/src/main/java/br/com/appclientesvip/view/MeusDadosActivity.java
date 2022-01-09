@@ -156,7 +156,7 @@ public class MeusDadosActivity extends AppCompatActivity {
 
     }
 
-    public void vontar(View view) {
+    public void voltar(View view) {
 
         Intent intent = new Intent(MeusDadosActivity.this, MainActivity.class);
         startActivity(intent);

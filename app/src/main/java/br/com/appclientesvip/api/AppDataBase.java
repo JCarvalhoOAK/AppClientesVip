@@ -16,13 +16,20 @@ import java.util.List;
 
 import br.com.appclientesvip.controller.ClientePFController;
 import br.com.appclientesvip.controller.ClientePJController;
+import br.com.appclientesvip.datamodel.ClientPermissionDataModel;
 import br.com.appclientesvip.datamodel.ClienteDataModel;
 import br.com.appclientesvip.datamodel.ClientePFDataModel;
 import br.com.appclientesvip.datamodel.ClientePJDataModel;
+import br.com.appclientesvip.datamodel.CollaboratorDataModel;
+import br.com.appclientesvip.datamodel.CollaboratorFuncionDataModel;
+import br.com.appclientesvip.datamodel.CollaboratorPermissionDataModel;
+import br.com.appclientesvip.datamodel.CollaboratorTypeDataModel;
+import br.com.appclientesvip.datamodel.PermissionDataModel;
 import br.com.appclientesvip.datamodel.TesteDataModel;
 import br.com.appclientesvip.model.Cliente;
 import br.com.appclientesvip.model.ClientePF;
 import br.com.appclientesvip.model.ClientePJ;
+import br.com.appclientesvip.model.CollaboratorType;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -101,6 +108,90 @@ public class AppDataBase extends SQLiteOpenHelper {
 
             // Capturar o erro
             Log.e(AppUtil.LOG_APP, "Erro TB ClientePJ: " + e.getMessage());
+
+        }
+
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(ClientPermissionDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB ClientPermission: " + ClientPermissionDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB ClientPermission: " + e.getMessage());
+
+        }
+
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(CollaboratorDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB Collaborator: " + CollaboratorDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB Collaborator: " + e.getMessage());
+
+        }
+
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(CollaboratorFuncionDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB CollaboratorFuncion: " + CollaboratorFuncionDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB CollaboratorFuncion: " + e.getMessage());
+
+        }
+
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(CollaboratorPermissionDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB CollaboratorPermission: " + CollaboratorPermissionDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB CollaboratorPermission: " + e.getMessage());
+
+        }
+
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(CollaboratorTypeDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB CollaboratorType: " + CollaboratorTypeDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB CollaboratorType: " + e.getMessage());
+
+        }
+
+        try {
+
+            // Executar o que desejamos
+            db.execSQL(PermissionDataModel.gerarTabela());
+
+            Log.i(AppUtil.LOG_APP, "TB Permission: " + PermissionDataModel.gerarTabela());
+
+        } catch (SQLException e) {
+
+            // Capturar o erro
+            Log.e(AppUtil.LOG_APP, "Erro TB Permission: " + e.getMessage());
 
         }
 
@@ -319,6 +410,45 @@ public class AppDataBase extends SQLiteOpenHelper {
                                     cursor.getColumnIndex(ClientePJDataModel.MEI)) == 1);
 
                     list.add(clientePJ);
+
+                } while (cursor.moveToNext());
+
+                Log.i(AppUtil.LOG_APP, tabela + " lista gerada com sucesso.");
+
+            }
+
+        } catch (SQLException e) {
+
+            Log.e(AppUtil.LOG_APP, "Erro ao listar os dados: " + tabela);
+            Log.e(AppUtil.LOG_APP, "Erro: " + e.getMessage());
+        }
+
+        return list;
+    }
+
+    @SuppressLint("Range")
+    public List<CollaboratorType> listCollaboratorType(String tabela) {
+
+        List<CollaboratorType> list = new ArrayList<>();
+
+        CollaboratorType collaboratorType;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        try {
+
+            cursor = db.rawQuery(sql, null);
+
+            if (cursor.moveToFirst()) {
+
+                do {
+
+                    collaboratorType = new CollaboratorType();
+
+                    collaboratorType.setId(cursor.getInt(cursor.getColumnIndex(CollaboratorTypeDataModel.ID)));
+                    collaboratorType.setName(cursor.getString(cursor.getColumnIndex(CollaboratorTypeDataModel.NAME)));
+
+                    list.add(collaboratorType);
 
                 } while (cursor.moveToNext());
 
