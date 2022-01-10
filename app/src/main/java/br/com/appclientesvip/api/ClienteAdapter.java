@@ -45,8 +45,15 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
     public void onBindViewHolder(@NonNull ClienteAdapter.ViewHolder holder, int position) {
 
         Cliente objDaLinha = aClientes.get(position);
+
         TextView txtPrimeiroNome = holder.rvPrimeiroNome;
         txtPrimeiroNome.setText(objDaLinha.getPrimeiroNome());
+
+        TextView txtSegundoNome = holder.rvSegundoNome;
+        txtSegundoNome.setText(objDaLinha.getSobreNome());
+
+        TextView txtEmail = holder.rvEmail;
+        txtEmail.setText(objDaLinha.getEmail());
 
         Button btnPessoaFisica = holder.rvPessoaFisica;
 //        btnPessoaFisica.setText(oblDaLinha.isPessoaFisica() ? "CPF" : "CNPJ");
@@ -71,13 +78,13 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
 
         public Button rvPessoaFisica;
-        public TextView rvPrimeiroNome;
-        public TextView rvEmail;
+        public TextView rvPrimeiroNome, rvSegundoNome, rvEmail;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             rvPrimeiroNome = itemView.findViewById(R.id.rvPrimeiroNome);
+            rvSegundoNome = itemView.findViewById(R.id.rvSegundooNome);
             rvPessoaFisica = itemView.findViewById(R.id.rvPessoaFisica);
             rvEmail = itemView.findViewById(R.id.rvEmail);
 

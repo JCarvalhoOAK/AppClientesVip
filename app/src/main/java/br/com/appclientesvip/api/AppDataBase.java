@@ -317,7 +317,6 @@ public class AppDataBase extends SQLiteOpenHelper {
                     if(!cliente.isPessoaFisica())
                         cliente.setClientePJ(controllerPJ.getClientePJByFK(cliente.getClientePF().getId()));
 
-
                     list.add(cliente);
 
                 } while (cursor.moveToNext());

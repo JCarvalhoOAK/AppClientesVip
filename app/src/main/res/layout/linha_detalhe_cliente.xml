@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,38 +11,115 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="vertical">
+        android:background="@drawable/custom_background_qua_radius"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/rvPrimeiroNome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:textAppearance="@android:style/TextAppearance.Holo.Large.Inverse"
-            android:textColor="@color/colorBranco"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/rvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
-            android:textAppearance="@android:style/TextAppearance.Holo.Large.Inverse"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
-
-
-        <Button
-            android:id="@+id/rvPessoaFisica"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
+
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:textAppearance="@android:style/TextAppearance.Holo.Large"
-            android:layout_marginRight="16dp"
-            android:text="@string/btnSalvarContinuar" />
+            android:background="@drawable/custom_white_background_radius_force"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:outlineAmbientShadowColor="@color/black"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/padrao" />
+
+
+                    <TextView
+                        android:id="@+id/rvPrimeiroNome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:onClick="lembrarSenha"
+                        android:text="@string/txtLembrar"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rvSegundooNome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:onClick="lembrarSenha"
+                        android:text="@string/txtLembrar"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rvEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/txtEmail"
+                        android:textStyle="bold" />
+                    android:inputType="textEmailAddress" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <Button
+                    android:id="@+id/rvPessoaFisica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/custom_background"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="45"
+                    android:text="@string/btnAcessar"
+                    android:textColor="@color/colorBranco"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
